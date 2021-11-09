@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
-import 'package:post_lite/widgets/post_widget.dart';
+import '../../widgets/post/post_item.dart';
 
 class FeedScreen extends StatefulWidget {
   @override

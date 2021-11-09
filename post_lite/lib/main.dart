@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
 import 'package:post_lite/screens/feed_screen/feed_screen.dart';
+import 'package:post_lite/screens/main_loign/main_login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: FeedScreen(),
+        home: MainLogin(),//FeedScreen(),
       ),
     );
   }
