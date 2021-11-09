@@ -300,9 +300,10 @@ class _$FeedScreenStateTearOff {
     return const _Initial();
   }
 
-  _ShowPosts showPosts(List<PostModel> postsToShow) {
+  _ShowPosts showPosts(List<PostModel> postsToShow, String postTiString) {
     return _ShowPosts(
       postsToShow,
+      postTiString,
     );
   }
 
@@ -319,21 +320,24 @@ mixin _$FeedScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<PostModel> postsToShow) showPosts,
+    required TResult Function(List<PostModel> postsToShow, String postTiString)
+        showPosts,
     required TResult Function() errorLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) =>
@@ -418,7 +422,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<PostModel> postsToShow) showPosts,
+    required TResult Function(List<PostModel> postsToShow, String postTiString)
+        showPosts,
     required TResult Function() errorLoading,
   }) {
     return initial();
@@ -428,7 +433,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
   }) {
     return initial?.call();
@@ -438,7 +444,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) {
@@ -492,7 +499,7 @@ abstract class _$ShowPostsCopyWith<$Res> {
   factory _$ShowPostsCopyWith(
           _ShowPosts value, $Res Function(_ShowPosts) then) =
       __$ShowPostsCopyWithImpl<$Res>;
-  $Res call({List<PostModel> postsToShow});
+  $Res call({List<PostModel> postsToShow, String postTiString});
 }
 
 /// @nodoc
@@ -507,12 +514,17 @@ class __$ShowPostsCopyWithImpl<$Res> extends _$FeedScreenStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postsToShow = freezed,
+    Object? postTiString = freezed,
   }) {
     return _then(_ShowPosts(
       postsToShow == freezed
           ? _value.postsToShow
           : postsToShow // ignore: cast_nullable_to_non_nullable
               as List<PostModel>,
+      postTiString == freezed
+          ? _value.postTiString
+          : postTiString // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -520,14 +532,16 @@ class __$ShowPostsCopyWithImpl<$Res> extends _$FeedScreenStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ShowPosts implements _ShowPosts {
-  const _$_ShowPosts(this.postsToShow);
+  const _$_ShowPosts(this.postsToShow, this.postTiString);
 
   @override
   final List<PostModel> postsToShow;
+  @override
+  final String postTiString;
 
   @override
   String toString() {
-    return 'FeedScreenState.showPosts(postsToShow: $postsToShow)';
+    return 'FeedScreenState.showPosts(postsToShow: $postsToShow, postTiString: $postTiString)';
   }
 
   @override
@@ -536,12 +550,14 @@ class _$_ShowPosts implements _ShowPosts {
         (other.runtimeType == runtimeType &&
             other is _ShowPosts &&
             const DeepCollectionEquality()
-                .equals(other.postsToShow, postsToShow));
+                .equals(other.postsToShow, postsToShow) &&
+            (identical(other.postTiString, postTiString) ||
+                other.postTiString == postTiString));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(postsToShow));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(postsToShow), postTiString);
 
   @JsonKey(ignore: true)
   @override
@@ -552,32 +568,35 @@ class _$_ShowPosts implements _ShowPosts {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<PostModel> postsToShow) showPosts,
+    required TResult Function(List<PostModel> postsToShow, String postTiString)
+        showPosts,
     required TResult Function() errorLoading,
   }) {
-    return showPosts(postsToShow);
+    return showPosts(postsToShow, postTiString);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
   }) {
-    return showPosts?.call(postsToShow);
+    return showPosts?.call(postsToShow, postTiString);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) {
     if (showPosts != null) {
-      return showPosts(postsToShow);
+      return showPosts(postsToShow, postTiString);
     }
     return orElse();
   }
@@ -618,9 +637,11 @@ class _$_ShowPosts implements _ShowPosts {
 }
 
 abstract class _ShowPosts implements FeedScreenState {
-  const factory _ShowPosts(List<PostModel> postsToShow) = _$_ShowPosts;
+  const factory _ShowPosts(List<PostModel> postsToShow, String postTiString) =
+      _$_ShowPosts;
 
   List<PostModel> get postsToShow;
+  String get postTiString;
   @JsonKey(ignore: true)
   _$ShowPostsCopyWith<_ShowPosts> get copyWith =>
       throw _privateConstructorUsedError;
@@ -668,7 +689,8 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<PostModel> postsToShow) showPosts,
+    required TResult Function(List<PostModel> postsToShow, String postTiString)
+        showPosts,
     required TResult Function() errorLoading,
   }) {
     return errorLoading();
@@ -678,7 +700,8 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
   }) {
     return errorLoading?.call();
@@ -688,7 +711,8 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<PostModel> postsToShow)? showPosts,
+    TResult Function(List<PostModel> postsToShow, String postTiString)?
+        showPosts,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) {

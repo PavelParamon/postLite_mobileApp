@@ -14,25 +14,23 @@ class FeedScreenBloc extends Bloc<FeedScreenEvent, FeedScreenState>{
   PostRepository postRepository = PostRepository();
   List<PostModel> postsToShow = [];
 
+  Future<FeedScreenState> processLoadPosts() async{
+    try{
+      postsToShow.addAll(await postRepository.getPosts());
+      return _ShowPosts(postsToShow, postsToShow.toString());
+    }
+    catch(e){
+      return _ErrorLoading();
+    }
+  }
+
   @override
   Stream<FeedScreenState> mapEventToState(FeedScreenEvent event) async* {
     if(event is _Started){
-      try{
-        postsToShow = await postRepository.getPosts();
-        yield _ShowPosts(postsToShow);
-      }
-      catch(_){
-        yield const _ErrorLoading();
-      }
+      yield await processLoadPosts();
     }
     if(event is _LoadMore){
-      try{
-        postsToShow.addAll(await postRepository.getPosts());
-        yield await _ShowPosts(postsToShow);
-      }
-      catch(_){
-        yield const _ErrorLoading();
-      }
+      yield await processLoadPosts();
     }
   }
 }

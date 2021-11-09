@@ -34,7 +34,7 @@ class _FeedScreenState extends State<FeedScreen> {
                   child: CircularProgressIndicator(),
                 );
               },
-              showPosts: (List<PostModel> postsToShow) {
+              showPosts: (List<PostModel> postsToShow, String postsToString) {
                 viewToReturn = _showPostsBuilder(postsToShow);
               },
               errorLoading: () {
