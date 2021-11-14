@@ -67,6 +67,7 @@ flutter:
   assets:
     - lib/resources/images/background.png
     - lib/resources/images/defaultAvatar.jpg
+    - lib/resources/images/myAvatar.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
