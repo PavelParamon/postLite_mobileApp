@@ -22,16 +22,30 @@ class MainLogin extends StatelessWidget {
             children: <Widget>[
               const Spacer(flex: 2),
               BigButtonRedirect(
-                style: Config.styleBtn,
-                text: 'Log In',
-                redirectScreen: LoginScreen(),
-              ),
+                  style: Config.styleBtn,
+                  text: 'Log In',
+                  onPressed: () => {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => LoginScreen(),
+                          ),
+                        )
+                      }),
               const SizedBox(height: Config.spaceSize),
               BigButtonRedirect(
-                style: Config.styleBtn,
-                text: 'Sign Up',
-                redirectScreen: SignUpFirstScreen(),
-              ),
+                  style: Config.styleBtn,
+                  text: 'Sign Up',
+                  onPressed: () => {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => SignUpFirstScreen(),
+                          ),
+                        )
+                      }),
               const SizedBox(height: Config.spaceSize),
               InkWell(
                 child: Text("Forgot your password?",
@@ -41,7 +55,8 @@ class MainLogin extends StatelessWidget {
                     context,
                     PageRouteBuilder(
                       opaque: false,
-                      pageBuilder: (_, __, ___) => PasswordRecoveryFirstScreen(),
+                      pageBuilder: (_, __, ___) =>
+                          PasswordRecoveryFirstScreen(),
                     ),
                   );
                 },

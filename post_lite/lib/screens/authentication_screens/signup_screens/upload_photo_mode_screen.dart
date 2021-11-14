@@ -20,16 +20,30 @@ class UploadPhotoMode extends StatelessWidget {
             children: <Widget>[
               const Spacer(flex: 2),
               BigButtonRedirect(
-                style: Config.styleBtn,
-                text: 'Camera',
-                redirectScreen: MainLogin(),
-              ),
+                  style: Config.styleBtn,
+                  text: 'Camera',
+                  onPressed: () => {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => MainLogin(),
+                          ),
+                        )
+                      }),
               const SizedBox(height: Config.spaceSize),
               BigButtonRedirect(
-                style: Config.styleBtn,
-                text: 'Gallery',
-                redirectScreen: MainLogin(),
-              ),
+                  style: Config.styleBtn,
+                  text: 'Gallery',
+                  onPressed: () => {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => MainLogin(),
+                          ),
+                        )
+                      }),
               const Spacer(),
               BackBtn(),
             ],

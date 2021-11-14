@@ -46,10 +46,18 @@ class _PasswordRecoveryFirstScreenState
               ),
               const SizedBox(height: Config.spaceSize),
               BigButtonRedirect(
-                style: Config.styleBtn,
-                text: 'Continue',
-                redirectScreen: PasswordRecoverySecondScreen(),
-              ),
+                  style: Config.styleBtn,
+                  text: 'Continue',
+                  onPressed: () => {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) =>
+                                PasswordRecoverySecondScreen(),
+                          ),
+                        )
+                      }),
               const Spacer(),
               BackBtn(),
             ],

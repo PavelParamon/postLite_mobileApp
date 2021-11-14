@@ -7,6 +7,9 @@ import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
 import '../../widgets/post/post_item.dart';
 
 class FeedScreen extends StatefulWidget {
+  late bool isAuth = false;
+
+  FeedScreen({Key? key, required this.isAuth}) : super(key: key);
   @override
   _FeedScreenState createState() => _FeedScreenState();
 }

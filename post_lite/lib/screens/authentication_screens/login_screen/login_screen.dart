@@ -61,13 +61,23 @@ class _LoginScreenState extends State<LoginScreen> {
               BigButtonRedirect(
                 style: Config.styleBtn,
                 text: 'Log In',
-                redirectScreen: FeedScreen(),
+                onPressed: verifyLogin,
               ),
               const Spacer(),
               BackBtn(),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Future<void> verifyLogin() async {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: false,
+        pageBuilder: (_, __, ___) => FeedScreen(isAuth: true),
       ),
     );
   }

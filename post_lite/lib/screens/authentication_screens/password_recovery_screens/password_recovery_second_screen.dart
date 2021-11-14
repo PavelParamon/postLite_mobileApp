@@ -42,10 +42,17 @@ class _PasswordRecoverySecondScreenState
               ),
               const SizedBox(height: Config.spaceSize),
               BigButtonRedirect(
-                style: Config.styleBtn,
-                text: 'Continue',
-                redirectScreen: MainLogin(),
-              ),
+                  style: Config.styleBtn,
+                  text: 'Continue',
+                  onPressed: () => {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => MainLogin(),
+                          ),
+                        )
+                      }),
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: Container(
