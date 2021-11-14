@@ -19,9 +19,9 @@ class MainLogin extends StatelessWidget {
             children: <Widget>[
               const Spacer(flex: 2),
               BigButton(style: Config.styleBtn, text: 'Log In'),
-              const SizedBox(height: 20),
+              const SizedBox(height: Config.spaceSize),
               BigButton(style: Config.styleBtn, text: 'Sign Up'),
-              const SizedBox(height: 20),
+              const SizedBox(height: Config.spaceSize),
               InkWell(
                 child: Text("Forgot your password?",
                     style: TextStyle(fontSize: 16.0, color: Config.colorBtn)),
