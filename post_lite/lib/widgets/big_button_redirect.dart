@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class BigButtonRedirect extends StatelessWidget {
   final ButtonStyle style;
   final String text;
-  final Widget redirectScreen;
+  final Function onPressed;
 
   const BigButtonRedirect({
     Key? key,
     required this.style,
     required this.text,
-    required this.redirectScreen,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -17,21 +17,11 @@ class BigButtonRedirect extends StatelessWidget {
     return ElevatedButton(
       style: style,
       onPressed: () {
-        _redirectToScreen(context);
+        onPressed();
       },
       child: Text(
         text,
         style: TextStyle(fontSize: 16.0),
-      ),
-    );
-  }
-
-  void _redirectToScreen(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        opaque: false,
-        pageBuilder: (_, __, ___) => redirectScreen,
       ),
     );
   }
