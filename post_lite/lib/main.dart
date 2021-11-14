@@ -4,6 +4,7 @@ import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
 import 'package:post_lite/screens/feed_screen/feed_screen.dart';
 import 'package:post_lite/screens/login_screens/login_screen/login_screen.dart';
 import 'package:post_lite/screens/login_screens/main_login/main_login_screen.dart';
+import 'package:post_lite/screens/login_screens/signup_screens/signup_second_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: LoginScreen(),//FeedScreen(),
+        home: SignUpSecondScreen(),//FeedScreen(),
       ),
     );
   }
