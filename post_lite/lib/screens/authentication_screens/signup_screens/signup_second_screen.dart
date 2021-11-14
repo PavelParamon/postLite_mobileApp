@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:post_lite/config/config.dart';
+import 'package:post_lite/screens/authentication_screens/signup_screens/upload_photo_mode_screen.dart';
+import 'package:post_lite/screens/feed_screen/feed_screen.dart';
 import 'package:post_lite/widgets/back_btn.dart';
-import 'package:post_lite/widgets/bigger_btn.dart';
+import 'package:post_lite/widgets/big_button_redirect.dart';
 
 class SignUpSecondScreen extends StatefulWidget {
   @override
@@ -38,7 +40,15 @@ class _SignUpSecondScreenState extends State<SignUpSecondScreen> {
                         bottom: 0,
                         right: -25,
                         child: RawMaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                opaque: false,
+                                pageBuilder: (_, __, ___) => UploadPhotoMode(),
+                              ),
+                            );
+                          },
                           elevation: 2.0,
                           fillColor: Colors.white,
                           child: Icon(
@@ -79,7 +89,11 @@ class _SignUpSecondScreenState extends State<SignUpSecondScreen> {
                 ),
               ),
               const SizedBox(height: Config.spaceSize),
-              BigButton(style: Config.styleBtn, text: 'Continue'),
+              BigButtonRedirect(
+                style: Config.styleBtn,
+                text: 'Continue',
+                redirectScreen: FeedScreen(),
+              ),
               const Spacer(),
               BackBtn(),
             ],

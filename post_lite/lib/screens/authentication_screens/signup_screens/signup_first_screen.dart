@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:post_lite/config/config.dart';
+import 'package:post_lite/screens/authentication_screens/signup_screens/signup_second_screen.dart';
 import 'package:post_lite/widgets/back_btn.dart';
-import 'package:post_lite/widgets/bigger_btn.dart';
+import 'package:post_lite/widgets/big_button_redirect.dart';
 
 class SignUpFirstScreen extends StatefulWidget {
   @override
@@ -57,7 +58,11 @@ class _SignUpFirstScreenState extends State<SignUpFirstScreen> {
                 ),
               ),
               const SizedBox(height: Config.spaceSize),
-              BigButton(style: Config.styleBtn, text: 'Continue'),
+              BigButtonRedirect(
+                style: Config.styleBtn,
+                text: 'Continue',
+                redirectScreen: SignUpSecondScreen(),
+              ),
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
                 child: Container(

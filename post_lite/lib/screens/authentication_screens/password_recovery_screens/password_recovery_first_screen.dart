@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:post_lite/config/config.dart';
+import 'package:post_lite/screens/authentication_screens/password_recovery_screens/password_recovery_second_screen.dart';
 import 'package:post_lite/widgets/back_btn.dart';
-import 'package:post_lite/widgets/bigger_btn.dart';
+import 'package:post_lite/widgets/big_button_redirect.dart';
 
 class PasswordRecoveryFirstScreen extends StatefulWidget {
   @override
-  _PasswordRecoveryFirstScreenState createState() => _PasswordRecoveryFirstScreenState();
+  _PasswordRecoveryFirstScreenState createState() =>
+      _PasswordRecoveryFirstScreenState();
 }
 
-class _PasswordRecoveryFirstScreenState extends State<PasswordRecoveryFirstScreen> {
+class _PasswordRecoveryFirstScreenState
+    extends State<PasswordRecoveryFirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +45,11 @@ class _PasswordRecoveryFirstScreenState extends State<PasswordRecoveryFirstScree
                 ),
               ),
               const SizedBox(height: Config.spaceSize),
-              BigButton(style: Config.styleBtn, text: 'Continue'),
+              BigButtonRedirect(
+                style: Config.styleBtn,
+                text: 'Continue',
+                redirectScreen: PasswordRecoverySecondScreen(),
+              ),
               const Spacer(),
               BackBtn(),
             ],
