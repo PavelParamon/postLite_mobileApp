@@ -77,6 +77,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 return PostItem(
                   post: post,
                   user: user,
+                  isAuth: widget.isAuth,
                 );
               } else {
                 _feedScreenBloc.add(FeedScreenEvent.loadMore());
@@ -94,19 +95,21 @@ class _FeedScreenState extends State<FeedScreen> {
           alignment: Alignment.bottomCenter,
           child: Padding(
             padding: EdgeInsets.all(10),
-            child: BigButtonRedirect(
-              style: Config.styleBtn,
-              text: "Log In",
-              onPressed: () => {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    opaque: false,
-                    pageBuilder: (_, __, ___) => MainLogin(),
-                  ),
-                ),
-              },
-            ),
+            child: !widget.isAuth
+                ? BigButtonRedirect(
+                    style: Config.styleBtn,
+                    text: "Log In",
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          opaque: false,
+                          pageBuilder: (_, __, ___) => MainLogin(),
+                        ),
+                      ),
+                    },
+                  )
+                : null,
           ),
         ),
       ],

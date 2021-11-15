@@ -9,11 +9,13 @@ import 'package:post_lite/screens/authentication_screens/main_login/main_login_s
 class PostItem extends StatelessWidget {
   final PostModel post;
   final UserModel user;
+  late bool isAuth;
 
-  const PostItem({
+  PostItem({
     Key? key,
     required this.post,
     required this.user,
+    required this.isAuth,
   }) : super(key: key);
 
   @override
@@ -44,7 +46,7 @@ class PostItem extends StatelessWidget {
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
                       child: Text(
                         '${user.nickName}',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14.0,
                           color: Colors.black54,
                         ),
@@ -122,28 +124,28 @@ class PostItem extends StatelessWidget {
                   Spacer(),
                   Icon(
                     Icons.insert_comment_outlined,
-                    color: Colors.grey,
+                    color: isAuth ? Colors.black : Colors.grey,
                   ),
                   const SizedBox(width: 5),
                   Text(
                     '52',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14.0,
-                      color: Colors.grey,
+                      color: isAuth ? Colors.black : Colors.grey,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Icon(
                     Icons.favorite_border,
-                    color: Colors.grey,
+                    color: isAuth ? Colors.black : Colors.grey,
                   ),
                   const SizedBox(width: 5),
                   Text(
                     '5',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14.0,
-                      color: Colors.grey,
+                      color: isAuth ? Colors.black : Colors.grey,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
