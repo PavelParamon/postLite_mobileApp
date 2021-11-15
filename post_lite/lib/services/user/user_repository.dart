@@ -1,28 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 
 class UserRepository {
-  Future<UserModel> getMainUser() async {
-    return Future.delayed(
-        Duration(seconds: 1),
-        () => UserModel(
-            id: 1,
-            nickName: "UserName",
-            phone: "87777777777",
-            password: "password",
-            avatar: AssetImage("lib/resources/images/myAvatar.jpg")));
-  }
+  List<UserModel> _listUsers = [
+    const UserModel(
+        id: 1,
+        nickName: "UserName",
+        phone: "87777777777",
+        password: "password",
+        avatar: AssetImage("lib/resources/images/myAvatar.jpg")),
+    UserModel(
+        id: 2,
+        nickName: "RandomName",
+        phone: "88525825652",
+        password: "password",
+        avatar: AssetImage("lib/resources/images/defaultAvatar.jpg")),
+    UserModel(
+        id: 3,
+        nickName: "RandomName",
+        phone: "88525825652",
+        password: "password",
+        avatar: AssetImage("lib/resources/images/defaultAvatar.jpg")),
+    UserModel(
+        id: 4,
+        nickName: "RandomName",
+        phone: "88525825652",
+        password: "password",
+        avatar: AssetImage("lib/resources/images/defaultAvatar.jpg")),
+    UserModel(
+        id: 5,
+        nickName: "RandomName",
+        phone: "88525825652",
+        password: "password",
+        avatar: AssetImage("lib/resources/images/defaultAvatar.jpg")),
+    UserModel(
+        id: 6,
+        nickName: "RandomName",
+        phone: "88525825652",
+        password: "password",
+        avatar: AssetImage("lib/resources/images/defaultAvatar.jpg"))
+  ];
 
-  Future<List<UserModel>> getUsers() async {
-    List<UserModel> listUsers = [];
-    for (int i = 0; i < 10; i++) {
-      listUsers.add(UserModel(
-          id: i + 1,
-          nickName: "RandomName",
-          phone: "88525825652",
-          password: "password",
-          avatar: AssetImage("lib/resources/images/defaultAvatar.jpg")));
+
+  Future<List<UserModel>> getUsers(List<PostModel> posts) async {
+    List<UserModel> users = [];
+    for(PostModel post in posts){
+      users.add(_listUsers[post.userId]);
     }
-    return Future.delayed(Duration(seconds: 1), () => listUsers);
+    return Future.delayed(Duration(seconds: 1), () => users);
   }
 }

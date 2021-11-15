@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:post_lite/models/post/post_model.dart';
+import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/services/post/post_repository.dart';
+import 'package:post_lite/services/user/user_repository.dart';
 
 part 'feed_screen_event.dart';
 part 'feed_screen_state.dart';
@@ -12,12 +14,17 @@ class FeedScreenBloc extends Bloc<FeedScreenEvent, FeedScreenState>{
   FeedScreenBloc() : super(const _Initial());
 
   PostRepository postRepository = PostRepository();
+  UserRepository userRepository = UserRepository();
   List<PostModel> postsToShow = [];
+  List<UserModel> userPosts = [];
 
   Future<FeedScreenState> processLoadPosts() async{
     try{
-      postsToShow.addAll(await postRepository.getPosts());
-      return _ShowPosts(postsToShow, postsToShow.toString());
+      List<PostModel> addPost = await postRepository.getPosts();
+      postsToShow.addAll(addPost);
+      userPosts.addAll(await userRepository.getUsers(addPost));
+
+      return _ShowPosts(postsToShow, postsToShow.toString(), userPosts);
     }
     catch(e){
       return _ErrorLoading();

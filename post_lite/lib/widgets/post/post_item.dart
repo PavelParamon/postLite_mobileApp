@@ -64,18 +64,26 @@ class PostItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                    child: Text(
-                      '${post.body}',
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
+                        child: Text(
+                          '${post.title}',
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
                     ),
-                ),
+                  ),
+                  Icon(Icons.more_vert),
+                ],
               ),
               RichText(
                 text: TextSpan(
@@ -109,6 +117,38 @@ class PostItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: Config.spaceSize),
+              Row(
+                children: [
+                  Spacer(),
+                  Icon(
+                    Icons.insert_comment_outlined,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    '52',
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Icon(
+                    Icons.favorite_border,
+                    color: Colors.grey,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    '5',
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
