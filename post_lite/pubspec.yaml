@@ -68,6 +68,10 @@ flutter:
     - lib/resources/images/background.png
     - lib/resources/images/defaultAvatar.jpg
     - lib/resources/images/myAvatar.jpg
+    - lib/resources/images/favorites.png
+    - lib/resources/images/add.png
+    - lib/resources/images/notification.png
+    - lib/resources/images/settings.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

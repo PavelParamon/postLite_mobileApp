@@ -55,15 +55,60 @@ class _FeedScreenState extends State<FeedScreen> {
           },
         ),
       ),
+      bottomNavigationBar: widget.isAuth ? Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [Color(0xFFFFBDCD),Colors.white],
+          ),
+        ),
+        child: BottomNavigationBar(
+          elevation: 0,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          backgroundColor: Colors.transparent,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: CircleAvatar(
+                backgroundImage:
+                AssetImage("lib/resources/images/defaultAvatar.jpg"),
+                radius: 30,
+              ),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset("lib/resources/images/settings.png"),//Icon(Icons.settings,size: 27,color: Colors.black,),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset("lib/resources/images/add.png"),//Icon(Icons.add_circle,size: 25,color: Colors.black,),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset("lib/resources/images/notification.png"),//Icon(Icons.notification_important_outlined,size: 25,color: Colors.black,),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset("lib/resources/images/favorites.png"),//Icon(Icons.favorite_border,size: 30,color: Colors.black,),
+              label: '',
+            ),
+          ],
+        ),
+      ) : null,
     );
   }
 
-  Widget _showPostsBuilder(
-      List<PostModel> postToShow, List<UserModel> userPost) {
+  Widget _showPostsBuilder(List<PostModel> postToShow,
+      List<UserModel> userPost) {
     return Stack(
       children: [
         LazyLoadScrollView(
-          scrollOffset: (MediaQuery.of(context).size.height * 0.7).toInt(),
+          scrollOffset: (MediaQuery
+              .of(context)
+              .size
+              .height * 0.7).toInt(),
           child: ListView.builder(
             padding: EdgeInsets.all(16),
             shrinkWrap: true,
@@ -74,13 +119,16 @@ class _FeedScreenState extends State<FeedScreen> {
               if (index != postToShow.length) {
                 PostModel post = postToShow[index];
                 UserModel user = userPost[post.userId];
+                if (index == postToShow.length - 4) {
+                  _feedScreenBloc.add(FeedScreenEvent.loadMore());
+                }
                 return PostItem(
                   post: post,
                   user: user,
                   isAuth: widget.isAuth,
                 );
               } else {
-                _feedScreenBloc.add(FeedScreenEvent.loadMore());
+                //_feedScreenBloc.add(FeedScreenEvent.loadMore());
                 return Center(
                   child: CircularProgressIndicator(),
                 );
@@ -97,18 +145,19 @@ class _FeedScreenState extends State<FeedScreen> {
             padding: EdgeInsets.all(10),
             child: !widget.isAuth
                 ? BigButtonRedirect(
-                    style: Config.styleBtn,
-                    text: "Log In",
-                    onPressed: () => {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          opaque: false,
-                          pageBuilder: (_, __, ___) => MainLogin(),
-                        ),
-                      ),
-                    },
-                  )
+              style: Config.styleBtn,
+              text: "Log In",
+              onPressed: () =>
+              {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    opaque: false,
+                    pageBuilder: (_, __, ___) => MainLogin(),
+                  ),
+                ),
+              },
+            )
                 : null,
           ),
         ),
