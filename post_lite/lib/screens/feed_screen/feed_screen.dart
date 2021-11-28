@@ -7,14 +7,17 @@ import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
 import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
+import 'package:post_lite/screens/user_screens/my_screen.dart';
 import 'package:post_lite/widgets/big_button_redirect.dart';
 
 import '../../widgets/post/post_item.dart';
 
 class FeedScreen extends StatefulWidget {
   late bool isAuth = false;
+  late UserModel thisUser;
 
-  FeedScreen({Key? key, required this.isAuth}) : super(key: key);
+  FeedScreen({Key? key, required this.isAuth, required this.thisUser})
+      : super(key: key);
 
   @override
   _FeedScreenState createState() => _FeedScreenState();
@@ -72,16 +75,21 @@ class _FeedScreenState extends State<FeedScreen> {
                 type: BottomNavigationBarType.fixed,
                 items: [
                   BottomNavigationBarItem(
-                    icon: CircleAvatar(
-                      backgroundImage:
-                          AssetImage("lib/resources/images/defaultAvatar.jpg"),
-                      radius: 30,
+                    icon: GestureDetector(
+                      child: CircleAvatar(
+                        backgroundImage: widget.thisUser.avatar,
+                        radius: 30,
+                      ),
+                      onTap: () {
+                        _navigationBar(MyUserScreen(
+                            isAuth: widget.isAuth, user: widget.thisUser));
+                      },
                     ),
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: Image.asset("lib/resources/images/settings.png"),
-                    //Icon(Icons.settings,size: 27,color: Colors.black,),
+                    icon: //Image.asset("lib/resources/images/settings.png"),
+                    Icon(Icons.settings,size: 30, color: Config.colorBtn,),
                     label: '',
                   ),
                   BottomNavigationBarItem(
@@ -90,13 +98,13 @@ class _FeedScreenState extends State<FeedScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: Image.asset("lib/resources/images/notification.png"),
-                    //Icon(Icons.notification_important_outlined,size: 25,color: Colors.black,),
+                    icon: //Image.asset("lib/resources/images/notification.png"),
+                    Icon(Icons.notification_important_outlined,size: 30,color: Config.colorBtn,),
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: Image.asset("lib/resources/images/favorites.png"),
-                    //Icon(Icons.favorite_border,size: 30,color: Colors.black,),
+                    icon: //Image.asset("lib/resources/images/favorites.png"),
+                    Icon(Icons.favorite_border,size: 30,color: Config.colorBtn,),
                     label: '',
                   ),
                 ],
@@ -175,6 +183,16 @@ class _FeedScreenState extends State<FeedScreen> {
         child: Icon(
           Icons.replay_outlined,
         ),
+      ),
+    );
+  }
+
+  void _navigationBar(Widget screen) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        opaque: false,
+        pageBuilder: (_, __, ___) => screen,
       ),
     );
   }

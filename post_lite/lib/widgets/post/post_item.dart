@@ -5,7 +5,7 @@ import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
-import 'package:post_lite/screens/some_user_screens/some_user_screen.dart';
+import 'package:post_lite/screens/user_screens/some_user_screen.dart';
 
 class PostItem extends StatelessWidget {
   final PostModel post;

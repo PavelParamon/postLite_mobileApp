@@ -67,4 +67,8 @@ class UserRepository {
     }
     return Future.delayed(Duration(seconds: 1), () => users);
   }
+
+  Future<UserModel> getLogin() async {
+    return Future.delayed(Duration(seconds: 1), () => _listUsers[0]);
+  }
 }

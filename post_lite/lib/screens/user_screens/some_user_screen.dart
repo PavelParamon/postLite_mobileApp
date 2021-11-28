@@ -5,7 +5,7 @@ import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
-import 'package:post_lite/screens/some_user_screens/bloc/some_user_screen_bloc.dart';
+import 'package:post_lite/screens/user_screens/bloc/user_screen_bloc.dart';
 import 'package:post_lite/widgets/back_btn.dart';
 import 'package:post_lite/widgets/post/post_item_minimal.dart';
 
@@ -21,12 +21,12 @@ class SomeUserScreen extends StatefulWidget {
 }
 
 class _SomeUserScreenState extends State<SomeUserScreen> {
-  late SomeUserScreenBloc _someUserScreenBloc;
+  late UserScreenBloc _userScreenBloc;
   Widget viewToReturn = Container();
 
   @override
   void dispose() {
-    _someUserScreenBloc.close();
+    _userScreenBloc.close();
     super.dispose();
   }
 
@@ -34,15 +34,13 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocProvider<SomeUserScreenBloc>(
-          create: (BuildContext context) => SomeUserScreenBloc(),
-          child: BlocBuilder<SomeUserScreenBloc, SomeUserScreenState>(
-            builder: (BuildContext context, SomeUserScreenState state) {
-              _someUserScreenBloc =
-                  BlocProvider.of<SomeUserScreenBloc>(context);
+        child: BlocProvider<UserScreenBloc>(
+          create: (BuildContext context) => UserScreenBloc(),
+          child: BlocBuilder<UserScreenBloc, UserScreenState>(
+            builder: (BuildContext context, UserScreenState state) {
+              _userScreenBloc = BlocProvider.of<UserScreenBloc>(context);
               state.when(initial: () {
-                _someUserScreenBloc
-                    .add(SomeUserScreenEvent.started(widget.user));
+                _userScreenBloc.add(UserScreenEvent.started(widget.user));
                 viewToReturn = Center(
                   child: CircularProgressIndicator(),
                 );
@@ -84,7 +82,7 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
               if (index != postsToShow.length) {
                 PostModel post = postsToShow[index];
                 if (index == postsToShow.length - 4) {
-                  _someUserScreenBloc.add(SomeUserScreenEvent.loadMore());
+                  _userScreenBloc.add(UserScreenEvent.loadMore());
                 }
                 return PostItemMinimal(
                   post: post,
@@ -98,7 +96,7 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
             },
           ),
           onEndOfPage: () {
-            _someUserScreenBloc.add(SomeUserScreenEvent.loadMore());
+            _userScreenBloc.add(UserScreenEvent.loadMore());
           },
         ),
         const Spacer(),
@@ -111,7 +109,7 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
     return Center(
       child: GestureDetector(
         onTap: () {
-          _someUserScreenBloc.add(SomeUserScreenEvent.started(widget.user));
+          _userScreenBloc.add(UserScreenEvent.started(widget.user));
         },
         child: Icon(
           Icons.replay_outlined,
@@ -181,6 +179,31 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
             style: TextStyle(fontSize: 16.0),
           ),
         ),
+        widget.isAuth
+            ? Column(
+                children: [
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      minimumSize:
+                          MaterialStateProperty.all<Size>(Size(150.0, 40.0)),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Config.colorBtn),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "Subscribe",
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  )
+                ],
+              )
+            : const SizedBox(height: 0),
         const SizedBox(height: Config.spaceSize),
         Align(
           alignment: Alignment.topLeft,

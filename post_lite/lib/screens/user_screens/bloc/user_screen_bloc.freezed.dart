@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'some_user_screen_bloc.dart';
+part of 'user_screen_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,8 +14,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$SomeUserScreenEventTearOff {
-  const _$SomeUserScreenEventTearOff();
+class _$UserScreenEventTearOff {
+  const _$UserScreenEventTearOff();
 
   _Started started(UserModel user) {
     return _Started(
@@ -37,10 +37,10 @@ class _$SomeUserScreenEventTearOff {
 }
 
 /// @nodoc
-const $SomeUserScreenEvent = _$SomeUserScreenEventTearOff();
+const $UserScreenEvent = _$UserScreenEventTearOff();
 
 /// @nodoc
-mixin _$SomeUserScreenEvent {
+mixin _$UserScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
@@ -94,20 +94,20 @@ mixin _$SomeUserScreenEvent {
 }
 
 /// @nodoc
-abstract class $SomeUserScreenEventCopyWith<$Res> {
-  factory $SomeUserScreenEventCopyWith(
-          SomeUserScreenEvent value, $Res Function(SomeUserScreenEvent) then) =
-      _$SomeUserScreenEventCopyWithImpl<$Res>;
+abstract class $UserScreenEventCopyWith<$Res> {
+  factory $UserScreenEventCopyWith(
+          UserScreenEvent value, $Res Function(UserScreenEvent) then) =
+      _$UserScreenEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SomeUserScreenEventCopyWithImpl<$Res>
-    implements $SomeUserScreenEventCopyWith<$Res> {
-  _$SomeUserScreenEventCopyWithImpl(this._value, this._then);
+class _$UserScreenEventCopyWithImpl<$Res>
+    implements $UserScreenEventCopyWith<$Res> {
+  _$UserScreenEventCopyWithImpl(this._value, this._then);
 
-  final SomeUserScreenEvent _value;
+  final UserScreenEvent _value;
   // ignore: unused_field
-  final $Res Function(SomeUserScreenEvent) _then;
+  final $Res Function(UserScreenEvent) _then;
 }
 
 /// @nodoc
@@ -120,8 +120,7 @@ abstract class _$StartedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res>
-    extends _$SomeUserScreenEventCopyWithImpl<$Res>
+class __$StartedCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
     implements _$StartedCopyWith<$Res> {
   __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
       : super(_value, (v) => _then(v as _Started));
@@ -159,7 +158,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'SomeUserScreenEvent.started(user: $user)';
+    return 'UserScreenEvent.started(user: $user)';
   }
 
   @override
@@ -253,7 +252,7 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements SomeUserScreenEvent {
+abstract class _Started implements UserScreenEvent {
   const factory _Started(UserModel user) = _$_Started;
 
   UserModel get user;
@@ -269,8 +268,7 @@ abstract class _$LoadMoreCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadMoreCopyWithImpl<$Res>
-    extends _$SomeUserScreenEventCopyWithImpl<$Res>
+class __$LoadMoreCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
     implements _$LoadMoreCopyWith<$Res> {
   __$LoadMoreCopyWithImpl(_LoadMore _value, $Res Function(_LoadMore) _then)
       : super(_value, (v) => _then(v as _LoadMore));
@@ -286,7 +284,7 @@ class _$_LoadMore implements _LoadMore {
 
   @override
   String toString() {
-    return 'SomeUserScreenEvent.loadMore()';
+    return 'UserScreenEvent.loadMore()';
   }
 
   @override
@@ -373,7 +371,7 @@ class _$_LoadMore implements _LoadMore {
   }
 }
 
-abstract class _LoadMore implements SomeUserScreenEvent {
+abstract class _LoadMore implements UserScreenEvent {
   const factory _LoadMore() = _$_LoadMore;
 }
 
@@ -386,7 +384,7 @@ abstract class _$ChangeCountFollowersCopyWith<$Res> {
 
 /// @nodoc
 class __$ChangeCountFollowersCopyWithImpl<$Res>
-    extends _$SomeUserScreenEventCopyWithImpl<$Res>
+    extends _$UserScreenEventCopyWithImpl<$Res>
     implements _$ChangeCountFollowersCopyWith<$Res> {
   __$ChangeCountFollowersCopyWithImpl(
       _ChangeCountFollowers _value, $Res Function(_ChangeCountFollowers) _then)
@@ -403,7 +401,7 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
 
   @override
   String toString() {
-    return 'SomeUserScreenEvent.changeCountFollowers()';
+    return 'UserScreenEvent.changeCountFollowers()';
   }
 
   @override
@@ -490,7 +488,7 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   }
 }
 
-abstract class _ChangeCountFollowers implements SomeUserScreenEvent {
+abstract class _ChangeCountFollowers implements UserScreenEvent {
   const factory _ChangeCountFollowers() = _$_ChangeCountFollowers;
 }
 
@@ -503,7 +501,7 @@ abstract class _$ChangeCountFollowingCopyWith<$Res> {
 
 /// @nodoc
 class __$ChangeCountFollowingCopyWithImpl<$Res>
-    extends _$SomeUserScreenEventCopyWithImpl<$Res>
+    extends _$UserScreenEventCopyWithImpl<$Res>
     implements _$ChangeCountFollowingCopyWith<$Res> {
   __$ChangeCountFollowingCopyWithImpl(
       _ChangeCountFollowing _value, $Res Function(_ChangeCountFollowing) _then)
@@ -520,7 +518,7 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
 
   @override
   String toString() {
-    return 'SomeUserScreenEvent.changeCountFollowing()';
+    return 'UserScreenEvent.changeCountFollowing()';
   }
 
   @override
@@ -607,13 +605,13 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   }
 }
 
-abstract class _ChangeCountFollowing implements SomeUserScreenEvent {
+abstract class _ChangeCountFollowing implements UserScreenEvent {
   const factory _ChangeCountFollowing() = _$_ChangeCountFollowing;
 }
 
 /// @nodoc
-class _$SomeUserScreenStateTearOff {
-  const _$SomeUserScreenStateTearOff();
+class _$UserScreenStateTearOff {
+  const _$UserScreenStateTearOff();
 
   _Initial initial() {
     return const _Initial();
@@ -634,10 +632,10 @@ class _$SomeUserScreenStateTearOff {
 }
 
 /// @nodoc
-const $SomeUserScreenState = _$SomeUserScreenStateTearOff();
+const $UserScreenState = _$UserScreenStateTearOff();
 
 /// @nodoc
-mixin _$SomeUserScreenState {
+mixin _$UserScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -691,20 +689,20 @@ mixin _$SomeUserScreenState {
 }
 
 /// @nodoc
-abstract class $SomeUserScreenStateCopyWith<$Res> {
-  factory $SomeUserScreenStateCopyWith(
-          SomeUserScreenState value, $Res Function(SomeUserScreenState) then) =
-      _$SomeUserScreenStateCopyWithImpl<$Res>;
+abstract class $UserScreenStateCopyWith<$Res> {
+  factory $UserScreenStateCopyWith(
+          UserScreenState value, $Res Function(UserScreenState) then) =
+      _$UserScreenStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SomeUserScreenStateCopyWithImpl<$Res>
-    implements $SomeUserScreenStateCopyWith<$Res> {
-  _$SomeUserScreenStateCopyWithImpl(this._value, this._then);
+class _$UserScreenStateCopyWithImpl<$Res>
+    implements $UserScreenStateCopyWith<$Res> {
+  _$UserScreenStateCopyWithImpl(this._value, this._then);
 
-  final SomeUserScreenState _value;
+  final UserScreenState _value;
   // ignore: unused_field
-  final $Res Function(SomeUserScreenState) _then;
+  final $Res Function(UserScreenState) _then;
 }
 
 /// @nodoc
@@ -714,8 +712,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$SomeUserScreenStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$UserScreenStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -731,7 +728,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'SomeUserScreenState.initial()';
+    return 'UserScreenState.initial()';
   }
 
   @override
@@ -818,7 +815,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements SomeUserScreenState {
+abstract class _Initial implements UserScreenState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -833,8 +830,7 @@ abstract class _$ShowPostsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ShowPostsCopyWithImpl<$Res>
-    extends _$SomeUserScreenStateCopyWithImpl<$Res>
+class __$ShowPostsCopyWithImpl<$Res> extends _$UserScreenStateCopyWithImpl<$Res>
     implements _$ShowPostsCopyWith<$Res> {
   __$ShowPostsCopyWithImpl(_ShowPosts _value, $Res Function(_ShowPosts) _then)
       : super(_value, (v) => _then(v as _ShowPosts));
@@ -886,7 +882,7 @@ class _$_ShowPosts implements _ShowPosts {
 
   @override
   String toString() {
-    return 'SomeUserScreenState.showPosts(user: $user, postsToShow: $postsToShow, postToString: $postToString)';
+    return 'UserScreenState.showPosts(user: $user, postsToShow: $postsToShow, postToString: $postToString)';
   }
 
   @override
@@ -985,7 +981,7 @@ class _$_ShowPosts implements _ShowPosts {
   }
 }
 
-abstract class _ShowPosts implements SomeUserScreenState {
+abstract class _ShowPosts implements UserScreenState {
   const factory _ShowPosts(
           UserModel user, List<PostModel> postsToShow, String postToString) =
       _$_ShowPosts;
@@ -1007,7 +1003,7 @@ abstract class _$ErrorLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$ErrorLoadingCopyWithImpl<$Res>
-    extends _$SomeUserScreenStateCopyWithImpl<$Res>
+    extends _$UserScreenStateCopyWithImpl<$Res>
     implements _$ErrorLoadingCopyWith<$Res> {
   __$ErrorLoadingCopyWithImpl(
       _ErrorLoading _value, $Res Function(_ErrorLoading) _then)
@@ -1024,7 +1020,7 @@ class _$_ErrorLoading implements _ErrorLoading {
 
   @override
   String toString() {
-    return 'SomeUserScreenState.errorLoading()';
+    return 'UserScreenState.errorLoading()';
   }
 
   @override
@@ -1111,6 +1107,6 @@ class _$_ErrorLoading implements _ErrorLoading {
   }
 }
 
-abstract class _ErrorLoading implements SomeUserScreenState {
+abstract class _ErrorLoading implements UserScreenState {
   const factory _ErrorLoading() = _$_ErrorLoading;
 }

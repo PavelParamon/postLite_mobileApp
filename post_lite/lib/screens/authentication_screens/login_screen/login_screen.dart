@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:post_lite/config/config.dart';
+import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/feed_screen/feed_screen.dart';
+import 'package:post_lite/services/user/user_repository.dart';
 import 'package:post_lite/widgets/back_btn.dart';
 import 'package:post_lite/widgets/big_button_redirect.dart';
 
@@ -73,11 +75,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> verifyLogin() async {
+    UserRepository _userRepository = UserRepository();
+    UserModel user = await _userRepository.getLogin();
     Navigator.push(
       context,
       PageRouteBuilder(
         opaque: false,
-        pageBuilder: (_, __, ___) => FeedScreen(isAuth: true),
+        pageBuilder: (_, __, ___) => FeedScreen(isAuth: true, thisUser: user),
       ),
     );
   }

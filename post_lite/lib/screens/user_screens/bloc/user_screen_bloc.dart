@@ -5,19 +5,19 @@ import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/services/post/post_repository.dart';
 import 'package:post_lite/services/user/user_repository.dart';
 
-part 'some_user_screen_event.dart';
-part 'some_user_screen_state.dart';
-part 'some_user_screen_bloc.freezed.dart';
+part 'user_screen_event.dart';
+part 'user_screen_state.dart';
+part 'user_screen_bloc.freezed.dart';
 
 
-class SomeUserScreenBloc extends Bloc<SomeUserScreenEvent, SomeUserScreenState>{
-  SomeUserScreenBloc() : super(const _Initial());
+class UserScreenBloc extends Bloc<UserScreenEvent, UserScreenState>{
+  UserScreenBloc() : super(const _Initial());
 
   PostRepository postRepository = PostRepository();
   List<PostModel> postsToShow = [];
   late UserModel user;
 
-  Future<SomeUserScreenState> processLoadEvent(_Started event) async{
+  Future<UserScreenState> processLoadEvent(_Started event) async{
     try{
       user = event.user;
       List<PostModel> addPost = await postRepository.getPostByUser(user.id);
@@ -30,7 +30,7 @@ class SomeUserScreenBloc extends Bloc<SomeUserScreenEvent, SomeUserScreenState>{
     }
   }
 
-  Future<SomeUserScreenState> processLoadPosts() async{
+  Future<UserScreenState> processLoadPosts() async{
     try{
       List<PostModel> addPost = await postRepository.getPostByUser(user.id);
       postsToShow.addAll(addPost);
@@ -42,7 +42,7 @@ class SomeUserScreenBloc extends Bloc<SomeUserScreenEvent, SomeUserScreenState>{
     }
   }
 
-  SomeUserScreenState processChangeCount(){
+  UserScreenState processChangeCount(){
     try{
       //after do get new list followers/following. Ascync
       user = user.copyWith(followingList: [1], followersList: [1]);
@@ -55,7 +55,7 @@ class SomeUserScreenBloc extends Bloc<SomeUserScreenEvent, SomeUserScreenState>{
   }
 
   @override
-  Stream<SomeUserScreenState> mapEventToState(SomeUserScreenEvent event) async* {
+  Stream<UserScreenState> mapEventToState(UserScreenEvent event) async* {
     if(event is _Started){
       yield await processLoadEvent(event);
     }

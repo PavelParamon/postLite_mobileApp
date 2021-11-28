@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
 import 'package:post_lite/screens/feed_screen/feed_screen.dart';
 
+import 'models/user/user_model.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -24,6 +26,14 @@ class MyApp extends StatelessWidget {
         ),
         home: FeedScreen(
           isAuth: false,
+          thisUser: UserModel(
+              id: -1,
+              nickName: "",
+              phone: "",
+              password: "",
+              avatar: AssetImage("lib/resources/images/defaultAvatar.jpg"),
+              followersList: [],
+              followingList: []),
         ),
       ),
     );
