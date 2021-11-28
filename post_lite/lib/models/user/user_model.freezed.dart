@@ -22,13 +22,17 @@ class _$UserModelTearOff {
       required String nickName,
       required String phone,
       required String password,
-      required AssetImage avatar}) {
+      required AssetImage avatar,
+      required List<int> followersList,
+      required List<int> followingList}) {
     return _UserModel(
       id: id,
       nickName: nickName,
       phone: phone,
       password: password,
       avatar: avatar,
+      followersList: followersList,
+      followingList: followingList,
     );
   }
 }
@@ -43,6 +47,8 @@ mixin _$UserModel {
   String get phone => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   AssetImage get avatar => throw _privateConstructorUsedError;
+  List<int> get followersList => throw _privateConstructorUsedError;
+  List<int> get followingList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserModelCopyWith<UserModel> get copyWith =>
@@ -58,7 +64,9 @@ abstract class $UserModelCopyWith<$Res> {
       String nickName,
       String phone,
       String password,
-      AssetImage avatar});
+      AssetImage avatar,
+      List<int> followersList,
+      List<int> followingList});
 }
 
 /// @nodoc
@@ -76,6 +84,8 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? phone = freezed,
     Object? password = freezed,
     Object? avatar = freezed,
+    Object? followersList = freezed,
+    Object? followingList = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -98,6 +108,14 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as AssetImage,
+      followersList: followersList == freezed
+          ? _value.followersList
+          : followersList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      followingList: followingList == freezed
+          ? _value.followingList
+          : followingList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ));
   }
 }
@@ -113,7 +131,9 @@ abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       String nickName,
       String phone,
       String password,
-      AssetImage avatar});
+      AssetImage avatar,
+      List<int> followersList,
+      List<int> followingList});
 }
 
 /// @nodoc
@@ -132,6 +152,8 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? password = freezed,
     Object? avatar = freezed,
+    Object? followersList = freezed,
+    Object? followingList = freezed,
   }) {
     return _then(_UserModel(
       id: id == freezed
@@ -154,6 +176,14 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as AssetImage,
+      followersList: followersList == freezed
+          ? _value.followersList
+          : followersList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      followingList: followingList == freezed
+          ? _value.followingList
+          : followingList // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ));
   }
 }
@@ -166,7 +196,9 @@ class _$_UserModel implements _UserModel {
       required this.nickName,
       required this.phone,
       required this.password,
-      required this.avatar});
+      required this.avatar,
+      required this.followersList,
+      required this.followingList});
 
   @override
   final int id;
@@ -178,10 +210,14 @@ class _$_UserModel implements _UserModel {
   final String password;
   @override
   final AssetImage avatar;
+  @override
+  final List<int> followersList;
+  @override
+  final List<int> followingList;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, nickName: $nickName, phone: $phone, password: $password, avatar: $avatar)';
+    return 'UserModel(id: $id, nickName: $nickName, phone: $phone, password: $password, avatar: $avatar, followersList: $followersList, followingList: $followingList)';
   }
 
   @override
@@ -195,12 +231,23 @@ class _$_UserModel implements _UserModel {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.avatar, avatar) || other.avatar == avatar));
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            const DeepCollectionEquality()
+                .equals(other.followersList, followersList) &&
+            const DeepCollectionEquality()
+                .equals(other.followingList, followingList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, nickName, phone, password, avatar);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      nickName,
+      phone,
+      password,
+      avatar,
+      const DeepCollectionEquality().hash(followersList),
+      const DeepCollectionEquality().hash(followingList));
 
   @JsonKey(ignore: true)
   @override
@@ -214,7 +261,9 @@ abstract class _UserModel implements UserModel {
       required String nickName,
       required String phone,
       required String password,
-      required AssetImage avatar}) = _$_UserModel;
+      required AssetImage avatar,
+      required List<int> followersList,
+      required List<int> followingList}) = _$_UserModel;
 
   @override
   int get id;
@@ -226,6 +275,10 @@ abstract class _UserModel implements UserModel {
   String get password;
   @override
   AssetImage get avatar;
+  @override
+  List<int> get followersList;
+  @override
+  List<int> get followingList;
   @override
   @JsonKey(ignore: true)
   _$UserModelCopyWith<_UserModel> get copyWith =>

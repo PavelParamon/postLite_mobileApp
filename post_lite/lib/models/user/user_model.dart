@@ -11,5 +11,7 @@ abstract class UserModel with _$UserModel {
     required String phone,
     required String password,
     required AssetImage avatar,
+    required List<int> followersList,
+    required List<int> followingList,
   }) = _UserModel;
 }

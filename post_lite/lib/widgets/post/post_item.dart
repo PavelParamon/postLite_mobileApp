@@ -5,6 +5,7 @@ import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
+import 'package:post_lite/screens/some_user_screens/some_user_screen.dart';
 
 class PostItem extends StatelessWidget {
   final PostModel post;
@@ -25,12 +26,24 @@ class PostItem extends StatelessWidget {
       children: <Widget>[
         Column(
           children: [
-            SizedBox(
-              height: 70,
-              width: 70,
-              child: CircleAvatar(
-                backgroundImage: user.avatar,
+            GestureDetector(
+              child: SizedBox(
+                height: 70,
+                width: 70,
+                child: CircleAvatar(
+                  backgroundImage: user.avatar,
+                ),
               ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    opaque: false,
+                    pageBuilder: (_, __, ___) =>
+                        SomeUserScreen(isAuth: isAuth, user: user),
+                  ),
+                );
+              },
             ),
           ],
         ),
