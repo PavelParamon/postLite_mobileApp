@@ -26,7 +26,7 @@ class PostRepository {
     for (int i = 0; i < 20; i++) {
       listPosts.add(PostModel(
           id: i + 1,
-          title: "Hello World!",
+          title: "Post" + userId.toString(),
           body:
           "Zebra loach bleak pilchard dwarf loach cow shark; ballan wrasse freshwater hatchetfish. Rio Grande perch deep sea smelt; bamboo shark; whitebait Sacramento blackfish denticle herring Pacific hake, grunt damselfish; tenpounder livebearer",
           userId: userId));

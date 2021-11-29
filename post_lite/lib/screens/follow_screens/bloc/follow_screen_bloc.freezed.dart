@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user_screen_bloc.dart';
+part of 'follow_screen_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$UserScreenEventTearOff {
-  const _$UserScreenEventTearOff();
+class _$FollowScreenEventTearOff {
+  const _$FollowScreenEventTearOff();
 
-  _Started started(UserModel user) {
+  _Started started(UserModel user, String type) {
     return _Started(
       user,
+      type,
     );
   }
 
@@ -27,53 +28,46 @@ class _$UserScreenEventTearOff {
     return const _LoadMore();
   }
 
-  _ChangeCountFollowers changeCountFollowers(UserModel user) {
+  _ChangeCountFollowers changeCountFollowers(UserModel userToRemove) {
     return _ChangeCountFollowers(
-      user,
+      userToRemove,
     );
   }
 
-  _ChangeCountFollowing changeCountFollowing(UserModel user) {
+  _ChangeCountFollowing changeCountFollowing(UserModel userToRemove) {
     return _ChangeCountFollowing(
-      user,
+      userToRemove,
     );
-  }
-
-  _Exit exit() {
-    return const _Exit();
   }
 }
 
 /// @nodoc
-const $UserScreenEvent = _$UserScreenEventTearOff();
+const $FollowScreenEvent = _$FollowScreenEventTearOff();
 
 /// @nodoc
-mixin _$UserScreenEvent {
+mixin _$FollowScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) started,
+    required TResult Function(UserModel user, String type) started,
     required TResult Function() loadMore,
-    required TResult Function(UserModel user) changeCountFollowers,
-    required TResult Function(UserModel user) changeCountFollowing,
-    required TResult Function() exit,
+    required TResult Function(UserModel userToRemove) changeCountFollowers,
+    required TResult Function(UserModel userToRemove) changeCountFollowing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,7 +77,6 @@ mixin _$UserScreenEvent {
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeCountFollowers value) changeCountFollowers,
     required TResult Function(_ChangeCountFollowing value) changeCountFollowing,
-    required TResult Function(_Exit value) exit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -92,7 +85,6 @@ mixin _$UserScreenEvent {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,40 +93,39 @@ mixin _$UserScreenEvent {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserScreenEventCopyWith<$Res> {
-  factory $UserScreenEventCopyWith(
-          UserScreenEvent value, $Res Function(UserScreenEvent) then) =
-      _$UserScreenEventCopyWithImpl<$Res>;
+abstract class $FollowScreenEventCopyWith<$Res> {
+  factory $FollowScreenEventCopyWith(
+          FollowScreenEvent value, $Res Function(FollowScreenEvent) then) =
+      _$FollowScreenEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserScreenEventCopyWithImpl<$Res>
-    implements $UserScreenEventCopyWith<$Res> {
-  _$UserScreenEventCopyWithImpl(this._value, this._then);
+class _$FollowScreenEventCopyWithImpl<$Res>
+    implements $FollowScreenEventCopyWith<$Res> {
+  _$FollowScreenEventCopyWithImpl(this._value, this._then);
 
-  final UserScreenEvent _value;
+  final FollowScreenEvent _value;
   // ignore: unused_field
-  final $Res Function(UserScreenEvent) _then;
+  final $Res Function(FollowScreenEvent) _then;
 }
 
 /// @nodoc
 abstract class _$StartedCopyWith<$Res> {
   factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
       __$StartedCopyWithImpl<$Res>;
-  $Res call({UserModel user});
+  $Res call({UserModel user, String type});
 
   $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
+class __$StartedCopyWithImpl<$Res> extends _$FollowScreenEventCopyWithImpl<$Res>
     implements _$StartedCopyWith<$Res> {
   __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
       : super(_value, (v) => _then(v as _Started));
@@ -145,12 +136,17 @@ class __$StartedCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? type = freezed,
   }) {
     return _then(_Started(
       user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -165,14 +161,16 @@ class __$StartedCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Started implements _Started {
-  const _$_Started(this.user);
+  const _$_Started(this.user, this.type);
 
   @override
   final UserModel user;
+  @override
+  final String type;
 
   @override
   String toString() {
-    return 'UserScreenEvent.started(user: $user)';
+    return 'FollowScreenEvent.started(user: $user, type: $type)';
   }
 
   @override
@@ -180,11 +178,12 @@ class _$_Started implements _Started {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Started &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, type);
 
   @JsonKey(ignore: true)
   @override
@@ -194,39 +193,36 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) started,
+    required TResult Function(UserModel user, String type) started,
     required TResult Function() loadMore,
-    required TResult Function(UserModel user) changeCountFollowers,
-    required TResult Function(UserModel user) changeCountFollowing,
-    required TResult Function() exit,
+    required TResult Function(UserModel userToRemove) changeCountFollowers,
+    required TResult Function(UserModel userToRemove) changeCountFollowing,
   }) {
-    return started(user);
+    return started(user, type);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
   }) {
-    return started?.call(user);
+    return started?.call(user, type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started(user);
+      return started(user, type);
     }
     return orElse();
   }
@@ -238,7 +234,6 @@ class _$_Started implements _Started {
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeCountFollowers value) changeCountFollowers,
     required TResult Function(_ChangeCountFollowing value) changeCountFollowing,
-    required TResult Function(_Exit value) exit,
   }) {
     return started(this);
   }
@@ -250,7 +245,6 @@ class _$_Started implements _Started {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
   }) {
     return started?.call(this);
   }
@@ -262,7 +256,6 @@ class _$_Started implements _Started {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -272,10 +265,11 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements UserScreenEvent {
-  const factory _Started(UserModel user) = _$_Started;
+abstract class _Started implements FollowScreenEvent {
+  const factory _Started(UserModel user, String type) = _$_Started;
 
   UserModel get user;
+  String get type;
   @JsonKey(ignore: true)
   _$StartedCopyWith<_Started> get copyWith =>
       throw _privateConstructorUsedError;
@@ -288,7 +282,8 @@ abstract class _$LoadMoreCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoadMoreCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
+class __$LoadMoreCopyWithImpl<$Res>
+    extends _$FollowScreenEventCopyWithImpl<$Res>
     implements _$LoadMoreCopyWith<$Res> {
   __$LoadMoreCopyWithImpl(_LoadMore _value, $Res Function(_LoadMore) _then)
       : super(_value, (v) => _then(v as _LoadMore));
@@ -304,7 +299,7 @@ class _$_LoadMore implements _LoadMore {
 
   @override
   String toString() {
-    return 'UserScreenEvent.loadMore()';
+    return 'FollowScreenEvent.loadMore()';
   }
 
   @override
@@ -319,11 +314,10 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) started,
+    required TResult Function(UserModel user, String type) started,
     required TResult Function() loadMore,
-    required TResult Function(UserModel user) changeCountFollowers,
-    required TResult Function(UserModel user) changeCountFollowing,
-    required TResult Function() exit,
+    required TResult Function(UserModel userToRemove) changeCountFollowers,
+    required TResult Function(UserModel userToRemove) changeCountFollowing,
   }) {
     return loadMore();
   }
@@ -331,11 +325,10 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
   }) {
     return loadMore?.call();
   }
@@ -343,11 +336,10 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -363,7 +355,6 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeCountFollowers value) changeCountFollowers,
     required TResult Function(_ChangeCountFollowing value) changeCountFollowing,
-    required TResult Function(_Exit value) exit,
   }) {
     return loadMore(this);
   }
@@ -375,7 +366,6 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
   }) {
     return loadMore?.call(this);
   }
@@ -387,7 +377,6 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -397,7 +386,7 @@ class _$_LoadMore implements _LoadMore {
   }
 }
 
-abstract class _LoadMore implements UserScreenEvent {
+abstract class _LoadMore implements FollowScreenEvent {
   const factory _LoadMore() = _$_LoadMore;
 }
 
@@ -406,14 +395,14 @@ abstract class _$ChangeCountFollowersCopyWith<$Res> {
   factory _$ChangeCountFollowersCopyWith(_ChangeCountFollowers value,
           $Res Function(_ChangeCountFollowers) then) =
       __$ChangeCountFollowersCopyWithImpl<$Res>;
-  $Res call({UserModel user});
+  $Res call({UserModel userToRemove});
 
-  $UserModelCopyWith<$Res> get user;
+  $UserModelCopyWith<$Res> get userToRemove;
 }
 
 /// @nodoc
 class __$ChangeCountFollowersCopyWithImpl<$Res>
-    extends _$UserScreenEventCopyWithImpl<$Res>
+    extends _$FollowScreenEventCopyWithImpl<$Res>
     implements _$ChangeCountFollowersCopyWith<$Res> {
   __$ChangeCountFollowersCopyWithImpl(
       _ChangeCountFollowers _value, $Res Function(_ChangeCountFollowers) _then)
@@ -424,20 +413,20 @@ class __$ChangeCountFollowersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? user = freezed,
+    Object? userToRemove = freezed,
   }) {
     return _then(_ChangeCountFollowers(
-      user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
+      userToRemove == freezed
+          ? _value.userToRemove
+          : userToRemove // ignore: cast_nullable_to_non_nullable
               as UserModel,
     ));
   }
 
   @override
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
+  $UserModelCopyWith<$Res> get userToRemove {
+    return $UserModelCopyWith<$Res>(_value.userToRemove, (value) {
+      return _then(_value.copyWith(userToRemove: value));
     });
   }
 }
@@ -445,14 +434,14 @@ class __$ChangeCountFollowersCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeCountFollowers implements _ChangeCountFollowers {
-  const _$_ChangeCountFollowers(this.user);
+  const _$_ChangeCountFollowers(this.userToRemove);
 
   @override
-  final UserModel user;
+  final UserModel userToRemove;
 
   @override
   String toString() {
-    return 'UserScreenEvent.changeCountFollowers(user: $user)';
+    return 'FollowScreenEvent.changeCountFollowers(userToRemove: $userToRemove)';
   }
 
   @override
@@ -460,11 +449,12 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ChangeCountFollowers &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.userToRemove, userToRemove) ||
+                other.userToRemove == userToRemove));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, userToRemove);
 
   @JsonKey(ignore: true)
   @override
@@ -475,39 +465,36 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) started,
+    required TResult Function(UserModel user, String type) started,
     required TResult Function() loadMore,
-    required TResult Function(UserModel user) changeCountFollowers,
-    required TResult Function(UserModel user) changeCountFollowing,
-    required TResult Function() exit,
+    required TResult Function(UserModel userToRemove) changeCountFollowers,
+    required TResult Function(UserModel userToRemove) changeCountFollowing,
   }) {
-    return changeCountFollowers(user);
+    return changeCountFollowers(userToRemove);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
   }) {
-    return changeCountFollowers?.call(user);
+    return changeCountFollowers?.call(userToRemove);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
     required TResult orElse(),
   }) {
     if (changeCountFollowers != null) {
-      return changeCountFollowers(user);
+      return changeCountFollowers(userToRemove);
     }
     return orElse();
   }
@@ -519,7 +506,6 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeCountFollowers value) changeCountFollowers,
     required TResult Function(_ChangeCountFollowing value) changeCountFollowing,
-    required TResult Function(_Exit value) exit,
   }) {
     return changeCountFollowers(this);
   }
@@ -531,7 +517,6 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
   }) {
     return changeCountFollowers?.call(this);
   }
@@ -543,7 +528,6 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
     required TResult orElse(),
   }) {
     if (changeCountFollowers != null) {
@@ -553,10 +537,11 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   }
 }
 
-abstract class _ChangeCountFollowers implements UserScreenEvent {
-  const factory _ChangeCountFollowers(UserModel user) = _$_ChangeCountFollowers;
+abstract class _ChangeCountFollowers implements FollowScreenEvent {
+  const factory _ChangeCountFollowers(UserModel userToRemove) =
+      _$_ChangeCountFollowers;
 
-  UserModel get user;
+  UserModel get userToRemove;
   @JsonKey(ignore: true)
   _$ChangeCountFollowersCopyWith<_ChangeCountFollowers> get copyWith =>
       throw _privateConstructorUsedError;
@@ -567,14 +552,14 @@ abstract class _$ChangeCountFollowingCopyWith<$Res> {
   factory _$ChangeCountFollowingCopyWith(_ChangeCountFollowing value,
           $Res Function(_ChangeCountFollowing) then) =
       __$ChangeCountFollowingCopyWithImpl<$Res>;
-  $Res call({UserModel user});
+  $Res call({UserModel userToRemove});
 
-  $UserModelCopyWith<$Res> get user;
+  $UserModelCopyWith<$Res> get userToRemove;
 }
 
 /// @nodoc
 class __$ChangeCountFollowingCopyWithImpl<$Res>
-    extends _$UserScreenEventCopyWithImpl<$Res>
+    extends _$FollowScreenEventCopyWithImpl<$Res>
     implements _$ChangeCountFollowingCopyWith<$Res> {
   __$ChangeCountFollowingCopyWithImpl(
       _ChangeCountFollowing _value, $Res Function(_ChangeCountFollowing) _then)
@@ -585,20 +570,20 @@ class __$ChangeCountFollowingCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? user = freezed,
+    Object? userToRemove = freezed,
   }) {
     return _then(_ChangeCountFollowing(
-      user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
+      userToRemove == freezed
+          ? _value.userToRemove
+          : userToRemove // ignore: cast_nullable_to_non_nullable
               as UserModel,
     ));
   }
 
   @override
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
+  $UserModelCopyWith<$Res> get userToRemove {
+    return $UserModelCopyWith<$Res>(_value.userToRemove, (value) {
+      return _then(_value.copyWith(userToRemove: value));
     });
   }
 }
@@ -606,14 +591,14 @@ class __$ChangeCountFollowingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ChangeCountFollowing implements _ChangeCountFollowing {
-  const _$_ChangeCountFollowing(this.user);
+  const _$_ChangeCountFollowing(this.userToRemove);
 
   @override
-  final UserModel user;
+  final UserModel userToRemove;
 
   @override
   String toString() {
-    return 'UserScreenEvent.changeCountFollowing(user: $user)';
+    return 'FollowScreenEvent.changeCountFollowing(userToRemove: $userToRemove)';
   }
 
   @override
@@ -621,11 +606,12 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ChangeCountFollowing &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.userToRemove, userToRemove) ||
+                other.userToRemove == userToRemove));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, userToRemove);
 
   @JsonKey(ignore: true)
   @override
@@ -636,39 +622,36 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) started,
+    required TResult Function(UserModel user, String type) started,
     required TResult Function() loadMore,
-    required TResult Function(UserModel user) changeCountFollowers,
-    required TResult Function(UserModel user) changeCountFollowing,
-    required TResult Function() exit,
+    required TResult Function(UserModel userToRemove) changeCountFollowers,
+    required TResult Function(UserModel userToRemove) changeCountFollowing,
   }) {
-    return changeCountFollowing(user);
+    return changeCountFollowing(userToRemove);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
   }) {
-    return changeCountFollowing?.call(user);
+    return changeCountFollowing?.call(userToRemove);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
+    TResult Function(UserModel user, String type)? started,
     TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
+    TResult Function(UserModel userToRemove)? changeCountFollowers,
+    TResult Function(UserModel userToRemove)? changeCountFollowing,
     required TResult orElse(),
   }) {
     if (changeCountFollowing != null) {
-      return changeCountFollowing(user);
+      return changeCountFollowing(userToRemove);
     }
     return orElse();
   }
@@ -680,7 +663,6 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
     required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_ChangeCountFollowers value) changeCountFollowers,
     required TResult Function(_ChangeCountFollowing value) changeCountFollowing,
-    required TResult Function(_Exit value) exit,
   }) {
     return changeCountFollowing(this);
   }
@@ -692,7 +674,6 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
   }) {
     return changeCountFollowing?.call(this);
   }
@@ -704,7 +685,6 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
     TResult Function(_LoadMore value)? loadMore,
     TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
     TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
     required TResult orElse(),
   }) {
     if (changeCountFollowing != null) {
@@ -714,150 +694,28 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   }
 }
 
-abstract class _ChangeCountFollowing implements UserScreenEvent {
-  const factory _ChangeCountFollowing(UserModel user) = _$_ChangeCountFollowing;
+abstract class _ChangeCountFollowing implements FollowScreenEvent {
+  const factory _ChangeCountFollowing(UserModel userToRemove) =
+      _$_ChangeCountFollowing;
 
-  UserModel get user;
+  UserModel get userToRemove;
   @JsonKey(ignore: true)
   _$ChangeCountFollowingCopyWith<_ChangeCountFollowing> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$ExitCopyWith<$Res> {
-  factory _$ExitCopyWith(_Exit value, $Res Function(_Exit) then) =
-      __$ExitCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ExitCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
-    implements _$ExitCopyWith<$Res> {
-  __$ExitCopyWithImpl(_Exit _value, $Res Function(_Exit) _then)
-      : super(_value, (v) => _then(v as _Exit));
-
-  @override
-  _Exit get _value => super._value as _Exit;
-}
-
-/// @nodoc
-
-class _$_Exit implements _Exit {
-  const _$_Exit();
-
-  @override
-  String toString() {
-    return 'UserScreenEvent.exit()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Exit);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
-    required TResult Function(UserModel user) changeCountFollowers,
-    required TResult Function(UserModel user) changeCountFollowing,
-    required TResult Function() exit,
-  }) {
-    return exit();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
-  }) {
-    return exit?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
-    TResult Function(UserModel user)? changeCountFollowers,
-    TResult Function(UserModel user)? changeCountFollowing,
-    TResult Function()? exit,
-    required TResult orElse(),
-  }) {
-    if (exit != null) {
-      return exit();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_LoadMore value) loadMore,
-    required TResult Function(_ChangeCountFollowers value) changeCountFollowers,
-    required TResult Function(_ChangeCountFollowing value) changeCountFollowing,
-    required TResult Function(_Exit value) exit,
-  }) {
-    return exit(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
-    TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
-  }) {
-    return exit?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_LoadMore value)? loadMore,
-    TResult Function(_ChangeCountFollowers value)? changeCountFollowers,
-    TResult Function(_ChangeCountFollowing value)? changeCountFollowing,
-    TResult Function(_Exit value)? exit,
-    required TResult orElse(),
-  }) {
-    if (exit != null) {
-      return exit(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Exit implements UserScreenEvent {
-  const factory _Exit() = _$_Exit;
-}
-
-/// @nodoc
-class _$UserScreenStateTearOff {
-  const _$UserScreenStateTearOff();
+class _$FollowScreenStateTearOff {
+  const _$FollowScreenStateTearOff();
 
   _Initial initial() {
     return const _Initial();
   }
 
-  _ShowPosts showPosts(UserModel user, List<PostModel> postsToShow,
-      String postToString, String userToString) {
-    return _ShowPosts(
-      user,
-      postsToShow,
-      postToString,
-      userToString,
+  _ShowUsers showUsers(List<UserModel> usersToShow, String usersToString) {
+    return _ShowUsers(
+      usersToShow,
+      usersToString,
     );
   }
 
@@ -867,34 +725,31 @@ class _$UserScreenStateTearOff {
 }
 
 /// @nodoc
-const $UserScreenState = _$UserScreenStateTearOff();
+const $FollowScreenState = _$FollowScreenStateTearOff();
 
 /// @nodoc
-mixin _$UserScreenState {
+mixin _$FollowScreenState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)
-        showPosts,
+    required TResult Function(List<UserModel> usersToShow, String usersToString)
+        showUsers,
     required TResult Function() errorLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) =>
@@ -902,21 +757,21 @@ mixin _$UserScreenState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_ShowPosts value) showPosts,
+    required TResult Function(_ShowUsers value) showUsers,
     required TResult Function(_ErrorLoading value) errorLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
     required TResult orElse(),
   }) =>
@@ -924,20 +779,20 @@ mixin _$UserScreenState {
 }
 
 /// @nodoc
-abstract class $UserScreenStateCopyWith<$Res> {
-  factory $UserScreenStateCopyWith(
-          UserScreenState value, $Res Function(UserScreenState) then) =
-      _$UserScreenStateCopyWithImpl<$Res>;
+abstract class $FollowScreenStateCopyWith<$Res> {
+  factory $FollowScreenStateCopyWith(
+          FollowScreenState value, $Res Function(FollowScreenState) then) =
+      _$FollowScreenStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserScreenStateCopyWithImpl<$Res>
-    implements $UserScreenStateCopyWith<$Res> {
-  _$UserScreenStateCopyWithImpl(this._value, this._then);
+class _$FollowScreenStateCopyWithImpl<$Res>
+    implements $FollowScreenStateCopyWith<$Res> {
+  _$FollowScreenStateCopyWithImpl(this._value, this._then);
 
-  final UserScreenState _value;
+  final FollowScreenState _value;
   // ignore: unused_field
-  final $Res Function(UserScreenState) _then;
+  final $Res Function(FollowScreenState) _then;
 }
 
 /// @nodoc
@@ -947,7 +802,7 @@ abstract class _$InitialCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$UserScreenStateCopyWithImpl<$Res>
+class __$InitialCopyWithImpl<$Res> extends _$FollowScreenStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
       : super(_value, (v) => _then(v as _Initial));
@@ -963,7 +818,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'UserScreenState.initial()';
+    return 'FollowScreenState.initial()';
   }
 
   @override
@@ -979,9 +834,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)
-        showPosts,
+    required TResult Function(List<UserModel> usersToShow, String usersToString)
+        showUsers,
     required TResult Function() errorLoading,
   }) {
     return initial();
@@ -991,9 +845,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
   }) {
     return initial?.call();
@@ -1003,9 +856,8 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) {
@@ -1019,7 +871,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_ShowPosts value) showPosts,
+    required TResult Function(_ShowUsers value) showUsers,
     required TResult Function(_ErrorLoading value) errorLoading,
   }) {
     return initial(this);
@@ -1029,7 +881,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
   }) {
     return initial?.call(this);
@@ -1039,7 +891,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
     required TResult orElse(),
   }) {
@@ -1050,151 +902,114 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements UserScreenState {
+abstract class _Initial implements FollowScreenState {
   const factory _Initial() = _$_Initial;
 }
 
 /// @nodoc
-abstract class _$ShowPostsCopyWith<$Res> {
-  factory _$ShowPostsCopyWith(
-          _ShowPosts value, $Res Function(_ShowPosts) then) =
-      __$ShowPostsCopyWithImpl<$Res>;
-  $Res call(
-      {UserModel user,
-      List<PostModel> postsToShow,
-      String postToString,
-      String userToString});
-
-  $UserModelCopyWith<$Res> get user;
+abstract class _$ShowUsersCopyWith<$Res> {
+  factory _$ShowUsersCopyWith(
+          _ShowUsers value, $Res Function(_ShowUsers) then) =
+      __$ShowUsersCopyWithImpl<$Res>;
+  $Res call({List<UserModel> usersToShow, String usersToString});
 }
 
 /// @nodoc
-class __$ShowPostsCopyWithImpl<$Res> extends _$UserScreenStateCopyWithImpl<$Res>
-    implements _$ShowPostsCopyWith<$Res> {
-  __$ShowPostsCopyWithImpl(_ShowPosts _value, $Res Function(_ShowPosts) _then)
-      : super(_value, (v) => _then(v as _ShowPosts));
+class __$ShowUsersCopyWithImpl<$Res>
+    extends _$FollowScreenStateCopyWithImpl<$Res>
+    implements _$ShowUsersCopyWith<$Res> {
+  __$ShowUsersCopyWithImpl(_ShowUsers _value, $Res Function(_ShowUsers) _then)
+      : super(_value, (v) => _then(v as _ShowUsers));
 
   @override
-  _ShowPosts get _value => super._value as _ShowPosts;
+  _ShowUsers get _value => super._value as _ShowUsers;
 
   @override
   $Res call({
-    Object? user = freezed,
-    Object? postsToShow = freezed,
-    Object? postToString = freezed,
-    Object? userToString = freezed,
+    Object? usersToShow = freezed,
+    Object? usersToString = freezed,
   }) {
-    return _then(_ShowPosts(
-      user == freezed
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as UserModel,
-      postsToShow == freezed
-          ? _value.postsToShow
-          : postsToShow // ignore: cast_nullable_to_non_nullable
-              as List<PostModel>,
-      postToString == freezed
-          ? _value.postToString
-          : postToString // ignore: cast_nullable_to_non_nullable
-              as String,
-      userToString == freezed
-          ? _value.userToString
-          : userToString // ignore: cast_nullable_to_non_nullable
+    return _then(_ShowUsers(
+      usersToShow == freezed
+          ? _value.usersToShow
+          : usersToShow // ignore: cast_nullable_to_non_nullable
+              as List<UserModel>,
+      usersToString == freezed
+          ? _value.usersToString
+          : usersToString // ignore: cast_nullable_to_non_nullable
               as String,
     ));
-  }
-
-  @override
-  $UserModelCopyWith<$Res> get user {
-    return $UserModelCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$_ShowPosts implements _ShowPosts {
-  const _$_ShowPosts(
-      this.user, this.postsToShow, this.postToString, this.userToString);
+class _$_ShowUsers implements _ShowUsers {
+  const _$_ShowUsers(this.usersToShow, this.usersToString);
 
   @override
-  final UserModel user;
+  final List<UserModel> usersToShow;
   @override
-  final List<PostModel> postsToShow;
-  @override
-  final String postToString;
-  @override
-  final String userToString;
+  final String usersToString;
 
   @override
   String toString() {
-    return 'UserScreenState.showPosts(user: $user, postsToShow: $postsToShow, postToString: $postToString, userToString: $userToString)';
+    return 'FollowScreenState.showUsers(usersToShow: $usersToShow, usersToString: $usersToString)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ShowPosts &&
-            (identical(other.user, user) || other.user == user) &&
+            other is _ShowUsers &&
             const DeepCollectionEquality()
-                .equals(other.postsToShow, postsToShow) &&
-            (identical(other.postToString, postToString) ||
-                other.postToString == postToString) &&
-            (identical(other.userToString, userToString) ||
-                other.userToString == userToString));
+                .equals(other.usersToShow, usersToShow) &&
+            (identical(other.usersToString, usersToString) ||
+                other.usersToString == usersToString));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      user,
-      const DeepCollectionEquality().hash(postsToShow),
-      postToString,
-      userToString);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(usersToShow), usersToString);
 
   @JsonKey(ignore: true)
   @override
-  _$ShowPostsCopyWith<_ShowPosts> get copyWith =>
-      __$ShowPostsCopyWithImpl<_ShowPosts>(this, _$identity);
+  _$ShowUsersCopyWith<_ShowUsers> get copyWith =>
+      __$ShowUsersCopyWithImpl<_ShowUsers>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)
-        showPosts,
+    required TResult Function(List<UserModel> usersToShow, String usersToString)
+        showUsers,
     required TResult Function() errorLoading,
   }) {
-    return showPosts(user, postsToShow, postToString, userToString);
+    return showUsers(usersToShow, usersToString);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
   }) {
-    return showPosts?.call(user, postsToShow, postToString, userToString);
+    return showUsers?.call(usersToShow, usersToString);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) {
-    if (showPosts != null) {
-      return showPosts(user, postsToShow, postToString, userToString);
+    if (showUsers != null) {
+      return showUsers(usersToShow, usersToString);
     }
     return orElse();
   }
@@ -1203,47 +1018,45 @@ class _$_ShowPosts implements _ShowPosts {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_ShowPosts value) showPosts,
+    required TResult Function(_ShowUsers value) showUsers,
     required TResult Function(_ErrorLoading value) errorLoading,
   }) {
-    return showPosts(this);
+    return showUsers(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
   }) {
-    return showPosts?.call(this);
+    return showUsers?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
     required TResult orElse(),
   }) {
-    if (showPosts != null) {
-      return showPosts(this);
+    if (showUsers != null) {
+      return showUsers(this);
     }
     return orElse();
   }
 }
 
-abstract class _ShowPosts implements UserScreenState {
-  const factory _ShowPosts(UserModel user, List<PostModel> postsToShow,
-      String postToString, String userToString) = _$_ShowPosts;
+abstract class _ShowUsers implements FollowScreenState {
+  const factory _ShowUsers(List<UserModel> usersToShow, String usersToString) =
+      _$_ShowUsers;
 
-  UserModel get user;
-  List<PostModel> get postsToShow;
-  String get postToString;
-  String get userToString;
+  List<UserModel> get usersToShow;
+  String get usersToString;
   @JsonKey(ignore: true)
-  _$ShowPostsCopyWith<_ShowPosts> get copyWith =>
+  _$ShowUsersCopyWith<_ShowUsers> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1256,7 +1069,7 @@ abstract class _$ErrorLoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$ErrorLoadingCopyWithImpl<$Res>
-    extends _$UserScreenStateCopyWithImpl<$Res>
+    extends _$FollowScreenStateCopyWithImpl<$Res>
     implements _$ErrorLoadingCopyWith<$Res> {
   __$ErrorLoadingCopyWithImpl(
       _ErrorLoading _value, $Res Function(_ErrorLoading) _then)
@@ -1273,7 +1086,7 @@ class _$_ErrorLoading implements _ErrorLoading {
 
   @override
   String toString() {
-    return 'UserScreenState.errorLoading()';
+    return 'FollowScreenState.errorLoading()';
   }
 
   @override
@@ -1289,9 +1102,8 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)
-        showPosts,
+    required TResult Function(List<UserModel> usersToShow, String usersToString)
+        showUsers,
     required TResult Function() errorLoading,
   }) {
     return errorLoading();
@@ -1301,9 +1113,8 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
   }) {
     return errorLoading?.call();
@@ -1313,9 +1124,8 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(UserModel user, List<PostModel> postsToShow,
-            String postToString, String userToString)?
-        showPosts,
+    TResult Function(List<UserModel> usersToShow, String usersToString)?
+        showUsers,
     TResult Function()? errorLoading,
     required TResult orElse(),
   }) {
@@ -1329,7 +1139,7 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
-    required TResult Function(_ShowPosts value) showPosts,
+    required TResult Function(_ShowUsers value) showUsers,
     required TResult Function(_ErrorLoading value) errorLoading,
   }) {
     return errorLoading(this);
@@ -1339,7 +1149,7 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
   }) {
     return errorLoading?.call(this);
@@ -1349,7 +1159,7 @@ class _$_ErrorLoading implements _ErrorLoading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
-    TResult Function(_ShowPosts value)? showPosts,
+    TResult Function(_ShowUsers value)? showUsers,
     TResult Function(_ErrorLoading value)? errorLoading,
     required TResult orElse(),
   }) {
@@ -1360,6 +1170,6 @@ class _$_ErrorLoading implements _ErrorLoading {
   }
 }
 
-abstract class _ErrorLoading implements UserScreenState {
+abstract class _ErrorLoading implements FollowScreenState {
   const factory _ErrorLoading() = _$_ErrorLoading;
 }

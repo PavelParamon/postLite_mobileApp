@@ -89,7 +89,11 @@ class _FeedScreenState extends State<FeedScreen> {
                   ),
                   BottomNavigationBarItem(
                     icon: //Image.asset("lib/resources/images/settings.png"),
-                    Icon(Icons.settings,size: 30, color: Config.colorBtn,),
+                        Icon(
+                      Icons.settings,
+                      size: 30,
+                      color: Config.colorBtn,
+                    ),
                     label: '',
                   ),
                   BottomNavigationBarItem(
@@ -99,12 +103,20 @@ class _FeedScreenState extends State<FeedScreen> {
                   ),
                   BottomNavigationBarItem(
                     icon: //Image.asset("lib/resources/images/notification.png"),
-                    Icon(Icons.notification_important_outlined,size: 30,color: Config.colorBtn,),
+                        Icon(
+                      Icons.notification_important_outlined,
+                      size: 30,
+                      color: Config.colorBtn,
+                    ),
                     label: '',
                   ),
                   BottomNavigationBarItem(
                     icon: //Image.asset("lib/resources/images/favorites.png"),
-                    Icon(Icons.favorite_border,size: 30,color: Config.colorBtn,),
+                        Icon(
+                      Icons.favorite_border,
+                      size: 30,
+                      color: Config.colorBtn,
+                    ),
                     label: '',
                   ),
                 ],
@@ -125,7 +137,6 @@ class _FeedScreenState extends State<FeedScreen> {
             physics: BouncingScrollPhysics(),
             itemCount: postsToShow.length + 1,
             itemBuilder: (BuildContext context, int index) {
-              if (index.isOdd) return const Divider();
               if (index != postsToShow.length) {
                 PostModel post = postsToShow[index];
                 UserModel user = users[post.userId];

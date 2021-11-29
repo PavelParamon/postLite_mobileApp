@@ -5,6 +5,8 @@ import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
+import 'package:post_lite/screens/follow_screens/followers_screen.dart';
+import 'package:post_lite/screens/follow_screens/following_screen.dart';
 import 'package:post_lite/screens/user_screens/bloc/user_screen_bloc.dart';
 import 'package:post_lite/widgets/back_btn.dart';
 import 'package:post_lite/widgets/post/post_item_minimal.dart';
@@ -26,39 +28,43 @@ class _MyUserScreenState extends State<MyUserScreen> {
 
   @override
   void dispose() {
-    _userScreenBloc.close();
+    //_userScreenBloc.close();
+    _userScreenBloc.add(UserScreenEvent.exit());
+
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    _userScreenBloc = BlocProvider.of<UserScreenBloc>(context);
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocProvider<UserScreenBloc>(
-          create: (BuildContext context) => UserScreenBloc(),
-          child: BlocBuilder<UserScreenBloc, UserScreenState>(
-            builder: (BuildContext context, UserScreenState state) {
-              _userScreenBloc = BlocProvider.of<UserScreenBloc>(context);
-              state.when(initial: () {
-                _userScreenBloc.add(UserScreenEvent.started(widget.user));
-                viewToReturn = Center(
-                  child: CircularProgressIndicator(),
-                );
-              }, showPosts: (
-                UserModel user,
-                List<PostModel> postsToShow,
-                String postsToString,
-              ) {
-                viewToReturn = _showScreenBuilder(user, postsToShow);
-              }, errorLoading: () {
-                viewToReturn = Center(
-                  child: CircularProgressIndicator(),
-                );
-              });
-
-              return viewToReturn;
-            },
-          ),
+        child: BlocBuilder<UserScreenBloc, UserScreenState>(
+          builder: (BuildContext context, UserScreenState state) {
+            state.when(initial: () {
+              _userScreenBloc.add(UserScreenEvent.started(widget.user));
+              viewToReturn = Center(
+                child: CircularProgressIndicator(),
+              );
+            }, showPosts: (
+              UserModel user,
+              List<PostModel> postsToShow,
+              String postsToString,
+              String userToString,
+            ) {
+              viewToReturn = _showScreenBuilder(user, postsToShow);
+            }, errorLoading: () {
+              viewToReturn = Center(
+                child: CircularProgressIndicator(),
+              );
+            });
+            return viewToReturn;
+          },
         ),
       ),
     );
@@ -73,14 +79,13 @@ class _MyUserScreenState extends State<MyUserScreen> {
             padding: EdgeInsets.all(16),
             shrinkWrap: true,
             physics: BouncingScrollPhysics(),
-            itemCount: postsToShow.length + 2,
+            itemCount: postsToShow.length + 1,
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 return _firstRow(user);
               }
-              if (index.isOdd) return const Divider();
               if (index != postsToShow.length) {
-                PostModel post = postsToShow[index];
+                PostModel post = postsToShow[index - 1];
                 if (index == postsToShow.length - 4) {
                   _userScreenBloc.add(UserScreenEvent.loadMore());
                 }
@@ -189,7 +194,16 @@ class _MyUserScreenState extends State<MyUserScreen> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (_, __, ___) =>
+                    FollowersScreen(isAuth: widget.isAuth, user: widget.user),
+              ),
+            );
+          },
           child: Text(
             "Followers (${user.followersList.length})",
             style: TextStyle(fontSize: 16.0),
@@ -206,9 +220,18 @@ class _MyUserScreenState extends State<MyUserScreen> {
               ),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (_, __, ___) =>
+                    FollowingScreen(isAuth: widget.isAuth, user: widget.user),
+              ),
+            );
+          },
           child: Text(
-            "Following (${user.followersList.length})",
+            "Following (${user.followingList.length})",
             style: TextStyle(fontSize: 16.0),
           ),
         ),
