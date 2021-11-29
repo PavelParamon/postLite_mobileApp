@@ -92,7 +92,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         Icon(
                       Icons.settings,
                       size: 30,
-                      color: Config.colorBtn,
+                      color: Colors.black54,
                     ),
                     label: '',
                   ),
@@ -106,7 +106,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         Icon(
                       Icons.notification_important_outlined,
                       size: 30,
-                      color: Config.colorBtn,
+                      color: Colors.black54,
                     ),
                     label: '',
                   ),
@@ -115,7 +115,7 @@ class _FeedScreenState extends State<FeedScreen> {
                         Icon(
                       Icons.favorite_border,
                       size: 30,
-                      color: Config.colorBtn,
+                      color: Colors.black54,
                     ),
                     label: '',
                   ),

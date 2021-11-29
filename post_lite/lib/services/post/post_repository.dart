@@ -16,7 +16,7 @@ class PostRepository {
           title: "Hello World!",
           body:
               "Zebra loach bleak pilchard dwarf loach cow shark; ballan wrasse freshwater hatchetfish. Rio Grande perch deep sea smelt; bamboo shark; whitebait Sacramento blackfish denticle herring Pacific hake, grunt damselfish; tenpounder livebearer",
-          userId: Random().nextInt(5)));
+          userId: Random().nextInt(5) + 1));
     }
     return Future.delayed(Duration(seconds: 1), () => listPosts);
   }

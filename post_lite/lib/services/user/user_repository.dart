@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:post_lite/models/comment/comment_model.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 
@@ -63,9 +64,17 @@ class UserRepository {
   Future<List<UserModel>> getUsers(List<PostModel> posts) async {
     List<UserModel> users = [];
     for (PostModel post in posts) {
-      users.add(listUsers[post.userId]);
+      users.add(listUsers[post.userId - 1]);
     }
     return Future.delayed(Duration(seconds: 1), () => users);
+  }
+
+  Future<List<UserModel>> getUsersByComments(List<CommentModel> comments) async {
+    List<UserModel> users = [];
+    for (CommentModel comment in comments) {
+      users.add(listUsers[comment.userId - 1]);
+    }
+    return Future.delayed(Duration(milliseconds: 500), () => users);
   }
 
   Future<List<UserModel>> getFollowers(UserModel user) async {

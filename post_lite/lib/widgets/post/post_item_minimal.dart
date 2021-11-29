@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
+import 'package:post_lite/screens/feed_item_screen/feed_item_screen.dart';
 
 class PostItemMinimal extends StatelessWidget {
   final PostModel post;
@@ -80,7 +81,7 @@ class PostItemMinimal extends StatelessWidget {
                                       PageRouteBuilder(
                                         opaque: false,
                                         pageBuilder: (_, __, ___) =>
-                                            MainLogin(),
+                                            FeedItemScreen(postItem: post, isAuth: isAuth, user: user),
                                       ),
                                     );
                                   },

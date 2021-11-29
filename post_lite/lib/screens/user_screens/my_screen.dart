@@ -145,7 +145,7 @@ class _MyUserScreenState extends State<MyUserScreen> {
                   icon: Icon(
                     Icons.settings,
                     size: 30,
-                    color: Config.colorBtn,
+                    color: Colors.black54,
                   ),
                   onPressed: () {},
                 ),
@@ -153,7 +153,7 @@ class _MyUserScreenState extends State<MyUserScreen> {
                   icon: Icon(
                     Icons.notification_important_outlined,
                     size: 30,
-                    color: Config.colorBtn,
+                    color: Colors.black54,
                   ),
                   onPressed: () {},
                 ),
@@ -161,7 +161,7 @@ class _MyUserScreenState extends State<MyUserScreen> {
                   icon: Icon(
                     Icons.favorite_border,
                     size: 30,
-                    color: Config.colorBtn,
+                    color: Colors.black54,
                   ),
                   onPressed: () {},
                 ),

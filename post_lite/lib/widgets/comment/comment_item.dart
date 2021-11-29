@@ -2,20 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:post_lite/config/config.dart';
+import 'package:post_lite/models/comment/comment_model.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
-import 'package:post_lite/screens/feed_item_screen/feed_item_screen.dart';
 import 'package:post_lite/screens/user_screens/some_user_screen.dart';
 
-class PostItem extends StatelessWidget {
-  final PostModel post;
+class CommentItem extends StatelessWidget {
+  final CommentModel comment;
   final UserModel user;
   late bool isAuth;
 
-  PostItem({
+  CommentItem({
     Key? key,
-    required this.post,
+    required this.comment,
     required this.user,
     required this.isAuth,
   }) : super(key: key);
@@ -31,8 +31,8 @@ class PostItem extends StatelessWidget {
               children: [
                 GestureDetector(
                   child: SizedBox(
-                    height: 70,
-                    width: 70,
+                    height: 40,
+                    width: 40,
                     child: CircleAvatar(
                       backgroundImage: user.avatar,
                     ),
@@ -82,76 +82,17 @@ class PostItem extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 0, 5),
-                            child: Text(
-                              '${post.title}',
-                              style: const TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Icon(Icons.more_vert),
-                    ],
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: '${post.body.substring(0, 100)}',
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                            color: Colors.black,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '...ReadMore',
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.push(
-                                context,
-                                PageRouteBuilder(
-                                  opaque: false,
-                                  pageBuilder: (_, __, ___) => FeedItemScreen(postItem: post, isAuth: isAuth, user: user),
-                                ),
-                              );
-                            },
-                          style: const TextStyle(
-                            fontSize: 14.0,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                  Text(
+                    '${comment.body}',
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: Config.spaceSize),
                   Row(
                     children: [
                       Spacer(),
-                      Icon(
-                        Icons.insert_comment_outlined,
-                        color: isAuth ? Colors.black : Colors.grey,
-                      ),
-                      const SizedBox(width: 5),
-                      Text(
-                        '52',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: isAuth ? Colors.black : Colors.grey,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
                       Icon(
                         Icons.favorite_border,
                         color: isAuth ? Colors.black : Colors.grey,

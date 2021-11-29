@@ -16,7 +16,7 @@ class FeedScreenBloc extends Bloc<FeedScreenEvent, FeedScreenState>{
   PostRepository postRepository = PostRepository();
   UserRepository userRepository = UserRepository();
   List<PostModel> postsToShow = [];
-  List<UserModel> user = [];
+  List<UserModel> users = [];
 
   Future<FeedScreenState> processLoadPosts() async{
     try{
@@ -24,9 +24,9 @@ class FeedScreenBloc extends Bloc<FeedScreenEvent, FeedScreenState>{
       List<PostModel> addPost = await postRepository.getPosts();
       postsToShow.addAll(addPost);
       //loading all users. After do get user by posts
-      user.addAll(await userRepository.getUsers(addPost));
+      users.addAll(await userRepository.getUsers(addPost));
 
-      return _ShowPosts(postsToShow, postsToShow.toString(), user);
+      return _ShowPosts(postsToShow, postsToShow.toString(), users);
     }
     catch(e){
       return _ErrorLoading();
