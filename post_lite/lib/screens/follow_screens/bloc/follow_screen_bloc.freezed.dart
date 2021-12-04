@@ -17,10 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$FollowScreenEventTearOff {
   const _$FollowScreenEventTearOff();
 
-  _Started started(UserModel user, String type) {
+  _Started started(UserModel user, String type, BuildContext context) {
     return _Started(
       user,
       type,
+      context,
     );
   }
 
@@ -48,7 +49,8 @@ const $FollowScreenEvent = _$FollowScreenEventTearOff();
 mixin _$FollowScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user, String type) started,
+    required TResult Function(UserModel user, String type, BuildContext context)
+        started,
     required TResult Function() loadMore,
     required TResult Function(UserModel userToRemove) changeCountFollowers,
     required TResult Function(UserModel userToRemove) changeCountFollowing,
@@ -56,7 +58,8 @@ mixin _$FollowScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -64,7 +67,8 @@ mixin _$FollowScreenEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -119,7 +123,7 @@ class _$FollowScreenEventCopyWithImpl<$Res>
 abstract class _$StartedCopyWith<$Res> {
   factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
       __$StartedCopyWithImpl<$Res>;
-  $Res call({UserModel user, String type});
+  $Res call({UserModel user, String type, BuildContext context});
 
   $UserModelCopyWith<$Res> get user;
 }
@@ -137,6 +141,7 @@ class __$StartedCopyWithImpl<$Res> extends _$FollowScreenEventCopyWithImpl<$Res>
   $Res call({
     Object? user = freezed,
     Object? type = freezed,
+    Object? context = freezed,
   }) {
     return _then(_Started(
       user == freezed
@@ -147,6 +152,10 @@ class __$StartedCopyWithImpl<$Res> extends _$FollowScreenEventCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      context == freezed
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 
@@ -161,16 +170,18 @@ class __$StartedCopyWithImpl<$Res> extends _$FollowScreenEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Started implements _Started {
-  const _$_Started(this.user, this.type);
+  const _$_Started(this.user, this.type, this.context);
 
   @override
   final UserModel user;
   @override
   final String type;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'FollowScreenEvent.started(user: $user, type: $type)';
+    return 'FollowScreenEvent.started(user: $user, type: $type, context: $context)';
   }
 
   @override
@@ -179,11 +190,12 @@ class _$_Started implements _Started {
         (other.runtimeType == runtimeType &&
             other is _Started &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.context, context) || other.context == context));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, type);
+  int get hashCode => Object.hash(runtimeType, user, type, context);
 
   @JsonKey(ignore: true)
   @override
@@ -193,36 +205,39 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user, String type) started,
+    required TResult Function(UserModel user, String type, BuildContext context)
+        started,
     required TResult Function() loadMore,
     required TResult Function(UserModel userToRemove) changeCountFollowers,
     required TResult Function(UserModel userToRemove) changeCountFollowing,
   }) {
-    return started(user, type);
+    return started(user, type, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
   }) {
-    return started?.call(user, type);
+    return started?.call(user, type, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started(user, type);
+      return started(user, type, context);
     }
     return orElse();
   }
@@ -266,10 +281,12 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements FollowScreenEvent {
-  const factory _Started(UserModel user, String type) = _$_Started;
+  const factory _Started(UserModel user, String type, BuildContext context) =
+      _$_Started;
 
   UserModel get user;
   String get type;
+  BuildContext get context;
   @JsonKey(ignore: true)
   _$StartedCopyWith<_Started> get copyWith =>
       throw _privateConstructorUsedError;
@@ -314,7 +331,8 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user, String type) started,
+    required TResult Function(UserModel user, String type, BuildContext context)
+        started,
     required TResult Function() loadMore,
     required TResult Function(UserModel userToRemove) changeCountFollowers,
     required TResult Function(UserModel userToRemove) changeCountFollowing,
@@ -325,7 +343,8 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -336,7 +355,8 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -465,7 +485,8 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user, String type) started,
+    required TResult Function(UserModel user, String type, BuildContext context)
+        started,
     required TResult Function() loadMore,
     required TResult Function(UserModel userToRemove) changeCountFollowers,
     required TResult Function(UserModel userToRemove) changeCountFollowing,
@@ -476,7 +497,8 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -487,7 +509,8 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -622,7 +645,8 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserModel user, String type) started,
+    required TResult Function(UserModel user, String type, BuildContext context)
+        started,
     required TResult Function() loadMore,
     required TResult Function(UserModel userToRemove) changeCountFollowers,
     required TResult Function(UserModel userToRemove) changeCountFollowing,
@@ -633,7 +657,8 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,
@@ -644,7 +669,8 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserModel user, String type)? started,
+    TResult Function(UserModel user, String type, BuildContext context)?
+        started,
     TResult Function()? loadMore,
     TResult Function(UserModel userToRemove)? changeCountFollowers,
     TResult Function(UserModel userToRemove)? changeCountFollowing,

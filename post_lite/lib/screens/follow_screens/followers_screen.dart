@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:post_lite/models/user/user_model.dart';
+import 'package:post_lite/screens/user_screens/bloc/user_screen_bloc.dart';
 import 'package:post_lite/widgets/back_btn.dart';
 import 'package:post_lite/widgets/user/follow_item.dart';
 
 import 'bloc/follow_screen_bloc.dart';
+
 
 class FollowersScreen extends StatefulWidget {
   late bool isAuth = false;
@@ -39,7 +41,7 @@ class _FollowersScreenState extends State<FollowersScreen> {
               _followScreenBloc = BlocProvider.of<FollowScreenBloc>(context);
               state.when(initial: () {
                 _followScreenBloc
-                    .add(FollowScreenEvent.started(widget.user, "followers"));
+                    .add(FollowScreenEvent.started(widget.user, "followers", context));
                 viewToReturn = Center(
                   child: CircularProgressIndicator(),
                 );
@@ -75,8 +77,7 @@ class _FollowersScreenState extends State<FollowersScreen> {
             itemBuilder: (BuildContext context, int index) {
               if (index == 0) {
                 return Center(
-                  child: Text("Total: ${widget.user.followersList.length}")
-                );
+                    child: Text("Total: ${widget.user.followersList.length}"));
               }
               if (index - 1 != usersToShow.length) {
                 UserModel user = usersToShow[index - 1];
@@ -87,8 +88,9 @@ class _FollowersScreenState extends State<FollowersScreen> {
                   user: user,
                   isAuth: widget.isAuth,
                   onRemoveTap: () {
-                    _followScreenBloc.add(FollowScreenEvent.changeCountFollowers(user));
-                },
+                    _followScreenBloc
+                        .add(FollowScreenEvent.changeCountFollowers(user));
+                  },
                 );
               } else
                 return Center(
@@ -111,7 +113,7 @@ class _FollowersScreenState extends State<FollowersScreen> {
       child: GestureDetector(
         onTap: () {
           _followScreenBloc
-              .add(FollowScreenEvent.started(widget.user, "followers"));
+              .add(FollowScreenEvent.started(widget.user, "followers", context));
         },
         child: Icon(
           Icons.replay_outlined,

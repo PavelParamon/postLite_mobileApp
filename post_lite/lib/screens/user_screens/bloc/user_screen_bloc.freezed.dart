@@ -23,8 +23,10 @@ class _$UserScreenEventTearOff {
     );
   }
 
-  _LoadMore loadMore() {
-    return const _LoadMore();
+  _LoadMore loadMore(UserModel user) {
+    return _LoadMore(
+      user,
+    );
   }
 
   _ChangeCountFollowers changeCountFollowers(UserModel user) {
@@ -52,7 +54,7 @@ mixin _$UserScreenEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
+    required TResult Function(UserModel user) loadMore,
     required TResult Function(UserModel user) changeCountFollowers,
     required TResult Function(UserModel user) changeCountFollowing,
     required TResult Function() exit,
@@ -61,7 +63,7 @@ mixin _$UserScreenEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -70,7 +72,7 @@ mixin _$UserScreenEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -195,7 +197,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
+    required TResult Function(UserModel user) loadMore,
     required TResult Function(UserModel user) changeCountFollowers,
     required TResult Function(UserModel user) changeCountFollowing,
     required TResult Function() exit,
@@ -207,7 +209,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -219,7 +221,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -285,6 +287,9 @@ abstract class _Started implements UserScreenEvent {
 abstract class _$LoadMoreCopyWith<$Res> {
   factory _$LoadMoreCopyWith(_LoadMore value, $Res Function(_LoadMore) then) =
       __$LoadMoreCopyWithImpl<$Res>;
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -295,63 +300,92 @@ class __$LoadMoreCopyWithImpl<$Res> extends _$UserScreenEventCopyWithImpl<$Res>
 
   @override
   _LoadMore get _value => super._value as _LoadMore;
+
+  @override
+  $Res call({
+    Object? user = freezed,
+  }) {
+    return _then(_LoadMore(
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+
+  @override
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_LoadMore implements _LoadMore {
-  const _$_LoadMore();
+  const _$_LoadMore(this.user);
+
+  @override
+  final UserModel user;
 
   @override
   String toString() {
-    return 'UserScreenEvent.loadMore()';
+    return 'UserScreenEvent.loadMore(user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoadMore);
+        (other.runtimeType == runtimeType &&
+            other is _LoadMore &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  _$LoadMoreCopyWith<_LoadMore> get copyWith =>
+      __$LoadMoreCopyWithImpl<_LoadMore>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
+    required TResult Function(UserModel user) loadMore,
     required TResult Function(UserModel user) changeCountFollowers,
     required TResult Function(UserModel user) changeCountFollowing,
     required TResult Function() exit,
   }) {
-    return loadMore();
+    return loadMore(user);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
   }) {
-    return loadMore?.call();
+    return loadMore?.call(user);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
-      return loadMore();
+      return loadMore(user);
     }
     return orElse();
   }
@@ -398,7 +432,12 @@ class _$_LoadMore implements _LoadMore {
 }
 
 abstract class _LoadMore implements UserScreenEvent {
-  const factory _LoadMore() = _$_LoadMore;
+  const factory _LoadMore(UserModel user) = _$_LoadMore;
+
+  UserModel get user;
+  @JsonKey(ignore: true)
+  _$LoadMoreCopyWith<_LoadMore> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -476,7 +515,7 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
+    required TResult Function(UserModel user) loadMore,
     required TResult Function(UserModel user) changeCountFollowers,
     required TResult Function(UserModel user) changeCountFollowing,
     required TResult Function() exit,
@@ -488,7 +527,7 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -500,7 +539,7 @@ class _$_ChangeCountFollowers implements _ChangeCountFollowers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -637,7 +676,7 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
+    required TResult Function(UserModel user) loadMore,
     required TResult Function(UserModel user) changeCountFollowers,
     required TResult Function(UserModel user) changeCountFollowing,
     required TResult Function() exit,
@@ -649,7 +688,7 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -661,7 +700,7 @@ class _$_ChangeCountFollowing implements _ChangeCountFollowing {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -762,7 +801,7 @@ class _$_Exit implements _Exit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(UserModel user) started,
-    required TResult Function() loadMore,
+    required TResult Function(UserModel user) loadMore,
     required TResult Function(UserModel user) changeCountFollowers,
     required TResult Function(UserModel user) changeCountFollowing,
     required TResult Function() exit,
@@ -774,7 +813,7 @@ class _$_Exit implements _Exit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,
@@ -786,7 +825,7 @@ class _$_Exit implements _Exit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UserModel user)? started,
-    TResult Function()? loadMore,
+    TResult Function(UserModel user)? loadMore,
     TResult Function(UserModel user)? changeCountFollowers,
     TResult Function(UserModel user)? changeCountFollowing,
     TResult Function()? exit,

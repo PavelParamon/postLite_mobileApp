@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
+import 'package:post_lite/screens/follow_screens/bloc/follow_screen_bloc.dart';
 import 'package:post_lite/services/post/post_repository.dart';
 import 'package:post_lite/services/user/user_repository.dart';
 
@@ -19,23 +22,26 @@ class UserScreenBloc extends Bloc<UserScreenEvent, UserScreenState>{
   List<PostModel> postsToShow = [];
   late UserModel user;
 
+  Future<void> processLoadInitialUser(UserModel newUser) async{
+    user = newUser;
+    List<UserModel> followers = await userRepository.getFollowers(user);
+    List<int> followersInt = [];
+    for (UserModel follower in followers){
+      followersInt.add(follower.id);
+    }
+    List<UserModel> following = await userRepository.getFollowing(user);
+    List<int> followingInt = [];
+    for (UserModel following in following){
+      followingInt.add(following.id);
+    }
+    user = user.copyWith(followersList: followersInt, followingList: followingInt);
+    List<PostModel> addPost = await postRepository.getPostByUser(user.id);
+    postsToShow.addAll(addPost);
+  }
+
   Future<UserScreenState> processLoadEvent(_Started event) async{
     try{
-      user = event.user;
-      List<UserModel> followers = await userRepository.getFollowers(user);
-      List<int> followersInt = [];
-      for (UserModel follower in followers){
-        followersInt.add(follower.id);
-      }
-      List<UserModel> following = await userRepository.getFollowing(user);
-      List<int> followingInt = [];
-      for (UserModel following in following){
-        followingInt.add(following.id);
-      }
-      user = user.copyWith(followersList: followersInt, followingList: followingInt);
-      List<PostModel> addPost = await postRepository.getPostByUser(user.id);
-      postsToShow.addAll(addPost);
-
+      await processLoadInitialUser(event.user);
       return _ShowPosts(user, postsToShow, postsToShow.toString(), user.toString());
     }
     catch(e){
@@ -43,8 +49,12 @@ class UserScreenBloc extends Bloc<UserScreenEvent, UserScreenState>{
     }
   }
 
-  Future<UserScreenState> processLoadPosts() async{
+  Future<UserScreenState> processLoadPosts(_LoadMore event) async{
     try{
+      if(event.user != user){
+        await processLoadInitialUser(event.user);
+        return _ShowPosts(user, postsToShow, postsToShow.toString(), user.toString());
+      }
       List<PostModel> addPost = await postRepository.getPostByUser(user.id);
       postsToShow.addAll(addPost);
 
@@ -86,17 +96,13 @@ class UserScreenBloc extends Bloc<UserScreenEvent, UserScreenState>{
       yield await processLoadEvent(event);
     }
     if(event is _LoadMore){
-      yield await processLoadPosts();
+      yield await processLoadPosts(event);
     }
     if(event is _ChangeCountFollowers){
       yield processChangeCountFollowers(event);
     }
     if(event is _ChangeCountFollowing){
       yield processChangeCountFollowing(event);
-    }
-    if(event is _Exit){
-      postsToShow = [];
-      yield _Initial();
     }
   }
 }

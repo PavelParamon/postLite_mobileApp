@@ -28,44 +28,39 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
 
   @override
   void dispose() {
-    //_userScreenBloc.close();
-    _userScreenBloc.add(UserScreenEvent.exit());
-
+    _userScreenBloc.close();
     super.dispose();
-  }
-
-  @override
-  void didChangeDependencies() {
-    _userScreenBloc = BlocProvider.of<UserScreenBloc>(context);
-    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<UserScreenBloc, UserScreenState>(
-          builder: (BuildContext context, UserScreenState state) {
-            _userScreenBloc = BlocProvider.of<UserScreenBloc>(context);
-            state.when(initial: () {
-              _userScreenBloc.add(UserScreenEvent.started(widget.user));
-              viewToReturn = Center(
-                child: CircularProgressIndicator(),
-              );
-            }, showPosts: (
-              UserModel user,
-              List<PostModel> postsToShow,
-              String postsToString,
-              String userToString,
-            ) {
-              viewToReturn = _showScreenBuilder(user, postsToShow);
-            }, errorLoading: () {
-              viewToReturn = Center(
-                child: CircularProgressIndicator(),
-              );
-            });
-            return viewToReturn;
-          },
+        child: BlocProvider<UserScreenBloc>(
+          create: (BuildContext context) => UserScreenBloc(),
+          child: BlocBuilder<UserScreenBloc, UserScreenState>(
+            builder: (BuildContext context, UserScreenState state) {
+              _userScreenBloc = BlocProvider.of<UserScreenBloc>(context);
+              state.when(initial: () {
+                _userScreenBloc.add(UserScreenEvent.started(widget.user));
+                viewToReturn = Center(
+                  child: CircularProgressIndicator(),
+                );
+              }, showPosts: (
+                UserModel user,
+                List<PostModel> postsToShow,
+                String postsToString,
+                String userToString,
+              ) {
+                viewToReturn = _showScreenBuilder(user, postsToShow);
+              }, errorLoading: () {
+                viewToReturn = Center(
+                  child: CircularProgressIndicator(),
+                );
+              });
+              return viewToReturn;
+            },
+          ),
         ),
       ),
     );
@@ -88,7 +83,7 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
               if (index != postsToShow.length) {
                 PostModel post = postsToShow[index - 1];
                 if (index == postsToShow.length - 4) {
-                  _userScreenBloc.add(UserScreenEvent.loadMore());
+                  _userScreenBloc.add(UserScreenEvent.loadMore(user));
                 }
                 return PostItemMinimal(
                   post: post,
@@ -102,7 +97,7 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
             },
           ),
           onEndOfPage: () {
-            _userScreenBloc.add(UserScreenEvent.loadMore());
+            _userScreenBloc.add(UserScreenEvent.loadMore(user));
           },
         ),
         const Spacer(),
@@ -165,10 +160,14 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
           onPressed: () {
             Navigator.push(
               context,
-              PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (_, __, ___) =>
-                    FollowersScreen(isAuth: widget.isAuth, user: widget.user),
+              MaterialPageRoute<FollowersScreen>(
+                builder: (context) {
+                  return BlocProvider.value(
+                    value: _userScreenBloc,
+                    child: FollowersScreen(
+                        isAuth: widget.isAuth, user: widget.user),
+                  );
+                },
               ),
             );
           },
@@ -191,10 +190,14 @@ class _SomeUserScreenState extends State<SomeUserScreen> {
           onPressed: () {
             Navigator.push(
               context,
-              PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (_, __, ___) =>
-                    FollowingScreen(isAuth: widget.isAuth, user: widget.user),
+              MaterialPageRoute<FollowersScreen>(
+                builder: (context) {
+                  return BlocProvider.value(
+                    value: _userScreenBloc,
+                    child: FollowingScreen(
+                        isAuth: widget.isAuth, user: widget.user),
+                  );
+                },
               ),
             );
           },

@@ -39,7 +39,7 @@ class _FollowingScreenState extends State<FollowingScreen> {
               _followScreenBloc = BlocProvider.of<FollowScreenBloc>(context);
               state.when(initial: () {
                 _followScreenBloc
-                    .add(FollowScreenEvent.started(widget.user, "following"));
+                    .add(FollowScreenEvent.started(widget.user, "following", context));
                 viewToReturn = Center(
                   child: CircularProgressIndicator(),
                 );
@@ -111,7 +111,7 @@ class _FollowingScreenState extends State<FollowingScreen> {
       child: GestureDetector(
         onTap: () {
           _followScreenBloc
-              .add(FollowScreenEvent.started(widget.user, "following"));
+              .add(FollowScreenEvent.started(widget.user, "following", context));
         },
         child: Icon(
           Icons.replay_outlined,
