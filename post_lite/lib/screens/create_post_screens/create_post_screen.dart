@@ -64,7 +64,6 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                       fillColor: Colors.white,
                       contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 20.0),
-                      //border: OutlineInputBorder(),
                       hintText: 'This post about...',
                     ),
                     onSubmitted: (String value) {

@@ -8,6 +8,7 @@ import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/favorites_posts_screen/favorites_posts_screen.dart';
 import 'package:post_lite/screens/follow_screens/followers_screen.dart';
 import 'package:post_lite/screens/follow_screens/following_screen.dart';
+import 'package:post_lite/screens/settings_screens/main_settings_screen.dart';
 import 'package:post_lite/screens/user_screens/bloc/user_screen_bloc.dart';
 import 'package:post_lite/widgets/back_btn.dart';
 import 'package:post_lite/widgets/post/post_item_minimal.dart';
@@ -144,7 +145,16 @@ class _MyUserScreenState extends State<MyUserScreen> {
                     size: 30,
                     color: Colors.black54,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        opaque: false,
+                        pageBuilder: (_, __, ___) =>
+                            MainSettingsScreen(user: widget.user),
+                      ),
+                    );
+                  },
                 ),
                 IconButton(
                   icon: Icon(
