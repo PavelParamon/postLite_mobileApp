@@ -6,6 +6,7 @@ import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
+import 'package:post_lite/screens/create_post_screens/create_post_screen.dart';
 import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
 import 'package:post_lite/screens/user_screens/my_screen.dart';
 import 'package:post_lite/widgets/big_button_redirect.dart';
@@ -88,8 +89,7 @@ class _FeedScreenState extends State<FeedScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: //Image.asset("lib/resources/images/settings.png"),
-                        Icon(
+                    icon: Icon(
                       Icons.settings,
                       size: 30,
                       color: Colors.black54,
@@ -97,13 +97,25 @@ class _FeedScreenState extends State<FeedScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: Image.asset("lib/resources/images/add.png"),
-                    //Icon(Icons.add_circle,size: 25,color: Colors.black,),
+                    icon: Transform.scale(
+                      scale: 2,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              opaque: false,
+                              pageBuilder: (_, __, ___) => CreatePostScreen(),
+                            ),
+                          );
+                        },
+                        icon: new Image.asset("lib/resources/images/add.png"),
+                      ),
+                    ),
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: //Image.asset("lib/resources/images/notification.png"),
-                        Icon(
+                    icon: Icon(
                       Icons.notification_important_outlined,
                       size: 30,
                       color: Colors.black54,
@@ -111,8 +123,7 @@ class _FeedScreenState extends State<FeedScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: //Image.asset("lib/resources/images/favorites.png"),
-                        Icon(
+                    icon: Icon(
                       Icons.favorite_border,
                       size: 30,
                       color: Colors.black54,

@@ -7,12 +7,7 @@ class UploadPhotoMode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("lib/resources/images/background.png"),
-              fit: BoxFit.cover)),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
