@@ -8,5 +8,6 @@ abstract class PostModel with _$PostModel {
       {required int id,
       required String title,
       required String body,
-      required int userId}) = _PostModel;
+      required int userId,
+      required bool statusLike}) = _PostModel;
 }

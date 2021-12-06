@@ -5,6 +5,7 @@ import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
+import 'package:post_lite/screens/favorites_posts_screen/favorites_posts_screen.dart';
 import 'package:post_lite/screens/follow_screens/followers_screen.dart';
 import 'package:post_lite/screens/follow_screens/following_screen.dart';
 import 'package:post_lite/screens/user_screens/bloc/user_screen_bloc.dart';
@@ -159,7 +160,16 @@ class _MyUserScreenState extends State<MyUserScreen> {
                     size: 30,
                     color: Colors.black54,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        opaque: false,
+                        pageBuilder: (_, __, ___) =>
+                            FavoritesPostsScreen(user: widget.user),
+                      ),
+                    );
+                  },
                 ),
               ],
             )

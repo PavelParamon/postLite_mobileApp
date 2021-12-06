@@ -7,6 +7,7 @@ import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
 import 'package:post_lite/screens/authentication_screens/main_login/main_login_screen.dart';
 import 'package:post_lite/screens/create_post_screens/create_post_screen.dart';
+import 'package:post_lite/screens/favorites_posts_screen/favorites_posts_screen.dart';
 import 'package:post_lite/screens/feed_screen/bloc/feed_screen_bloc.dart';
 import 'package:post_lite/screens/user_screens/my_screen.dart';
 import 'package:post_lite/widgets/big_button_redirect.dart';
@@ -123,10 +124,21 @@ class _FeedScreenState extends State<FeedScreen> {
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.favorite_border,
-                      size: 30,
-                      color: Colors.black54,
+                    icon: IconButton(
+                      icon: Icon(
+                        Icons.favorite_border,
+                        size: 30,
+                        color: Colors.black54,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            opaque: false,
+                            pageBuilder: (_, __, ___) => FavoritesPostsScreen(user: widget.thisUser),
+                          ),
+                        );
+                      },
                     ),
                     label: '',
                   ),

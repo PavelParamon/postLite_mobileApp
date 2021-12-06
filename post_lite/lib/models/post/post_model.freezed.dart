@@ -21,12 +21,14 @@ class _$PostModelTearOff {
       {required int id,
       required String title,
       required String body,
-      required int userId}) {
+      required int userId,
+      required bool statusLike}) {
     return _PostModel(
       id: id,
       title: title,
       body: body,
       userId: userId,
+      statusLike: statusLike,
     );
   }
 }
@@ -40,6 +42,7 @@ mixin _$PostModel {
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
+  bool get statusLike => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PostModelCopyWith<PostModel> get copyWith =>
@@ -50,7 +53,7 @@ mixin _$PostModel {
 abstract class $PostModelCopyWith<$Res> {
   factory $PostModelCopyWith(PostModel value, $Res Function(PostModel) then) =
       _$PostModelCopyWithImpl<$Res>;
-  $Res call({int id, String title, String body, int userId});
+  $Res call({int id, String title, String body, int userId, bool statusLike});
 }
 
 /// @nodoc
@@ -67,6 +70,7 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
     Object? title = freezed,
     Object? body = freezed,
     Object? userId = freezed,
+    Object? statusLike = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -85,6 +89,10 @@ class _$PostModelCopyWithImpl<$Res> implements $PostModelCopyWith<$Res> {
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
+      statusLike: statusLike == freezed
+          ? _value.statusLike
+          : statusLike // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -95,7 +103,7 @@ abstract class _$PostModelCopyWith<$Res> implements $PostModelCopyWith<$Res> {
           _PostModel value, $Res Function(_PostModel) then) =
       __$PostModelCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String body, int userId});
+  $Res call({int id, String title, String body, int userId, bool statusLike});
 }
 
 /// @nodoc
@@ -113,6 +121,7 @@ class __$PostModelCopyWithImpl<$Res> extends _$PostModelCopyWithImpl<$Res>
     Object? title = freezed,
     Object? body = freezed,
     Object? userId = freezed,
+    Object? statusLike = freezed,
   }) {
     return _then(_PostModel(
       id: id == freezed
@@ -131,6 +140,10 @@ class __$PostModelCopyWithImpl<$Res> extends _$PostModelCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as int,
+      statusLike: statusLike == freezed
+          ? _value.statusLike
+          : statusLike // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -142,7 +155,8 @@ class _$_PostModel implements _PostModel {
       {required this.id,
       required this.title,
       required this.body,
-      required this.userId});
+      required this.userId,
+      required this.statusLike});
 
   @override
   final int id;
@@ -152,10 +166,12 @@ class _$_PostModel implements _PostModel {
   final String body;
   @override
   final int userId;
+  @override
+  final bool statusLike;
 
   @override
   String toString() {
-    return 'PostModel(id: $id, title: $title, body: $body, userId: $userId)';
+    return 'PostModel(id: $id, title: $title, body: $body, userId: $userId, statusLike: $statusLike)';
   }
 
   @override
@@ -166,11 +182,14 @@ class _$_PostModel implements _PostModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.statusLike, statusLike) ||
+                other.statusLike == statusLike));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, body, userId);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, body, userId, statusLike);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +202,8 @@ abstract class _PostModel implements PostModel {
       {required int id,
       required String title,
       required String body,
-      required int userId}) = _$_PostModel;
+      required int userId,
+      required bool statusLike}) = _$_PostModel;
 
   @override
   int get id;
@@ -193,6 +213,8 @@ abstract class _PostModel implements PostModel {
   String get body;
   @override
   int get userId;
+  @override
+  bool get statusLike;
   @override
   @JsonKey(ignore: true)
   _$PostModelCopyWith<_PostModel> get copyWith =>
