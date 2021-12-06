@@ -5,6 +5,7 @@ import 'package:post_lite/config/config.dart';
 import 'package:post_lite/models/comment/comment_model.dart';
 import 'package:post_lite/models/post/post_model.dart';
 import 'package:post_lite/models/user/user_model.dart';
+import 'package:post_lite/screens/create_comment_screen/create_comment_screen.dart';
 import 'package:post_lite/screens/user_screens/some_user_screen.dart';
 import 'package:post_lite/widgets/back_btn.dart';
 import 'package:post_lite/widgets/comment/comment_item.dart';
@@ -219,11 +220,22 @@ class _FeedItemScreenState extends State<FeedItemScreen> {
                   Row(
                     children: [
                       Spacer(),
-                      Icon(
-                        Icons.insert_comment_outlined,
-                        color: widget.isAuth ? Colors.black : Colors.grey,
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              opaque: false,
+                              pageBuilder: (_, __, ___) =>
+                                  CreateCommentScreen(),
+                            ),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.insert_comment_outlined,
+                          color: widget.isAuth ? Colors.black : Colors.grey,
+                        ),
                       ),
-                      const SizedBox(width: 5),
                       Text(
                         '52',
                         style: TextStyle(
